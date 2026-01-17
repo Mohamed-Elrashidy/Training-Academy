@@ -1,6 +1,5 @@
 /// ****************** FILE INFO ******************
 /// File Name: training_academy_app.dart
-/// Purpose: Main app widget with Sentry integration
 /// Author: Mohamed Elrashidy
 /// Created At: 15/01/2026
 
@@ -23,10 +22,7 @@ class TrainingAcademyApp extends StatelessWidget {
         builder: (_, __) => MaterialApp(
           navigatorKey: appMainNavigatorKey,
           title: 'Training Academy',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
+          theme: ThemeData(useMaterial3: true, hoverColor: Colors.transparent),
           home: LoginPage(),
         ),
       ),

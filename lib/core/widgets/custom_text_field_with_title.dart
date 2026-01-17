@@ -12,7 +12,7 @@ class CustomTextFieldWithTitle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Title", style: AppTextStyles.heading3),
+          Text("Title", style: AppTextStyles.bodyLarge),
           CustomTextField(controller: TextEditingController()),
         ],
       ),
