@@ -70,7 +70,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get headlineLarge => heading1;
+  static TextStyle get headlineLarge => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 32,
+    fontWeight: FontWeight.bold,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: headlineMedium
   ///
@@ -80,7 +84,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get headlineMedium => heading2;
+  static TextStyle get headlineMedium => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 24,
+    fontWeight: FontWeight.w700,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: headlineSmall
   ///
@@ -90,7 +98,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get headlineSmall => heading3;
+  static TextStyle get headlineSmall => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 20,
+    fontWeight: FontWeight.w700,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: titleLarge
   ///
@@ -100,7 +112,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get titleLarge => title;
+  static TextStyle get titleLarge => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 18,
+    fontWeight: FontWeight.w700,
+    color: AppCustomColor.primaryColor.color,
+  );
 
   /// Function Name: titleMedium
   ///
@@ -110,7 +126,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get titleMedium => subtitle;
+  static TextStyle get titleMedium => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 16,
+    fontWeight: FontWeight.w600,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: titleSmall
   ///
@@ -120,7 +140,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get titleSmall => subtitle2;
+  static TextStyle get titleSmall => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 15,
+    fontWeight: FontWeight.w500,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: labelLarge
   ///
@@ -144,7 +168,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get labelMedium => button;
+  static TextStyle get labelMedium => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 14,
+    fontWeight: FontWeight.w600,
+    color: AppCustomColor.primaryColor.color,
+  );
 
   /// Function Name: labelSmall
   ///
@@ -351,7 +379,12 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get paragraph => body.copyWithAll(height: 1.6);
+  static TextStyle get paragraph => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 14,
+    fontWeight: FontWeight.w400,
+    color: AppCustomColor.blackFont.color,
+    height: 1.6,
+  );
 
   /// Function Name: link
   ///
@@ -390,8 +423,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get disabled =>
-      body.copyWithAll(color: AppCustomColor.blackFont.color.withAlpha(120));
+  static TextStyle get disabled => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 14,
+    fontWeight: FontWeight.w400,
+    color: AppCustomColor.blackFont.color.withAlpha(120),
+  );
 
   /// Function Name: error
   ///
@@ -443,8 +479,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get inputLabel =>
-      subtitle2.copyWithAll(fontSize: subtitle2.fontSize! * 0.95);
+  static TextStyle get inputLabel => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 14.25,
+    fontWeight: FontWeight.w500,
+    color: AppCustomColor.blackFont.color,
+  );
 
   /// Function Name: inputHint
   ///
@@ -454,8 +493,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get inputHint =>
-      caption.copyWithAll(color: AppCustomColor.blackFont.color.withAlpha(130));
+  static TextStyle get inputHint => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 11,
+    fontWeight: FontWeight.w400,
+    color: AppCustomColor.blackFont.color.withAlpha(130),
+  );
 
   /// Function Name: inputError
   ///
@@ -465,8 +507,10 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get inputError => error.copyWithAll(
+  static TextStyle get inputError => _mainTextStyle.copyWith(
     fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 12,
+    fontWeight: FontWeight.w500,
+    color: AppColors.secondaryColor,
   );
 
   /// Function Name: chip
@@ -477,8 +521,11 @@ class AppTextStyles {
   /// - none
   ///
   /// Returns: TextStyle
-  static TextStyle get chip =>
-      labelSmall.copyWithAll(fontWeight: FontWeight.w600);
+  static TextStyle get chip => _mainTextStyle.copyWith(
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 12,
+    fontWeight: FontWeight.w600,
+    color: AppCustomColor.primaryColor.color,
+  );
 
   /// Function Name: tooltip
   ///
@@ -509,95 +556,4 @@ class AppTextStyles {
     backgroundColor: AppColors.backgroundColor,
     color: AppCustomColor.blackFont.color,
   );
-}
-
-/// Function Name: copyWithAll (extension)
-///
-/// Purpose: Provide a full-featured copy method for TextStyle that exposes
-/// all common fields. Named `copyWithAll` to avoid shadowing the built-in
-/// `TextStyle.copyWith` and to ensure callers can opt into this explicit API.
-///
-/// Parameters:
-/// - inherit: whether the style should inherit from parent text styles.
-/// - color: text color.
-/// - backgroundColor: background color behind the text.
-/// - fontSize: font size.
-/// - fontWeight: font weight.
-/// - fontStyle: italic or normal.
-/// - letterSpacing: spacing between letters.
-/// - wordSpacing: spacing between words.
-/// - textBaseline: baseline behavior.
-/// - height: line height multiplier.
-/// - locale: locale for the text.
-/// - foreground: paint used as the text color (overrides color).
-/// - background: paint used as the text background (overrides backgroundColor).
-/// - shadows: list of shadows.
-/// - fontFeatures: font features like numeric settings.
-/// - decoration: decoration such as underline/lineThrough.
-/// - decorationColor: color of the decoration.
-/// - decorationStyle: style of decoration.
-/// - decorationThickness: thickness of decoration.
-/// - debugLabel: debug label for the style.
-/// - fontFamily: font family name.
-/// - fontFamilyFallback: fallback font families.
-/// - package: the package where the font asset lives.
-/// - overflow: how to handle overflow for text glyphs.
-///
-/// Returns: TextStyle
-extension TextStyleCopyWithExt on TextStyle {
-  TextStyle copyWithAll({
-    bool? inherit,
-    Color? color,
-    Color? backgroundColor,
-    double? fontSize,
-    FontWeight? fontWeight,
-    FontStyle? fontStyle,
-    double? letterSpacing,
-    double? wordSpacing,
-    TextBaseline? textBaseline,
-    double? height,
-    Locale? locale,
-    Paint? foreground,
-    Paint? background,
-    List<Shadow>? shadows,
-    List<FontFeature>? fontFeatures,
-    TextDecoration? decoration,
-    Color? decorationColor,
-    TextDecorationStyle? decorationStyle,
-    double? decorationThickness,
-    String? debugLabel,
-    String? fontFamily,
-    List<String>? fontFamilyFallback,
-    String? package,
-    TextOverflow? overflow,
-  }) {
-    return TextStyle(
-      inherit: inherit ?? this.inherit,
-      color: color ?? this.color,
-      backgroundColor: backgroundColor ?? this.backgroundColor,
-      fontSize: fontSize ?? this.fontSize,
-      fontWeight: fontWeight ?? this.fontWeight,
-      fontStyle: fontStyle ?? this.fontStyle,
-      letterSpacing: letterSpacing ?? this.letterSpacing,
-      wordSpacing: wordSpacing ?? this.wordSpacing,
-      textBaseline: textBaseline ?? this.textBaseline,
-      height: height ?? this.height,
-      locale: locale ?? this.locale,
-      foreground: foreground ?? this.foreground,
-      background: background ?? this.background,
-      shadows: shadows ?? this.shadows,
-      fontFeatures: fontFeatures ?? this.fontFeatures,
-      decoration: decoration ?? this.decoration,
-      decorationColor: decorationColor ?? this.decorationColor,
-      decorationStyle: decorationStyle ?? this.decorationStyle,
-      decorationThickness: decorationThickness ?? this.decorationThickness,
-      debugLabel: debugLabel ?? this.debugLabel,
-      fontFamily: fontFamily ?? this.fontFamily,
-      fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
-      // TextStyle doesn't expose a `package` getter, so we can't preserve
-      // an existing value — pass the provided parameter directly.
-      package: package,
-      overflow: overflow ?? this.overflow,
-    );
-  }
 }

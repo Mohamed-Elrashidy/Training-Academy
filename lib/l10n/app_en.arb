@@ -2,5 +2,9 @@
   "@@locale": "en",
   "email": "Email",
   "password": "Password",
-  "welcome": "Welcome to our app!"
+  "welcome": "Welcome to our app!",
+  "login": "Login",
+  "dontHaveAnAccount": "Don't have an account?",
+  "signUp": "Sign Up",
+  "forgotPassword": "Forgot Password?"
 }

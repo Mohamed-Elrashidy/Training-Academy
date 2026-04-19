@@ -5,9 +5,10 @@
 /// Created At: 05/04/2026
 
 import 'package:flutter/material.dart';
-import 'package:training_acedamy/core/widgets/custom_text_field.dart';
+import 'package:training_acedamy/core/widgets/fields/custom_text_field.dart';
+import 'package:training_acedamy/core/widgets/spacers/vertical_spacer.dart';
 
-import '../theme/text_styles.dart';
+import '../../theme/text_styles.dart';
 
 /// if in row use expanded to avoid overflow
 class CustomTextFieldWithTitle extends StatelessWidget {
@@ -35,7 +36,8 @@ class CustomTextFieldWithTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title, style: AppTextStyles.bodyLarge),
+        Text(title, style: AppTextStyles.body),
+        VerticalSpacer(height: 8),
         CustomTextField(controller: controller),
       ],
     );
