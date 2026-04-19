@@ -5,25 +5,39 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/routing/routing.dart';
 import 'core/theme/theme_cubit.dart';
-import 'features/authentication/presentation/ui/pages/login_page.dart';
+import 'l10n/app_localizations.dart';
 
 GlobalKey<NavigatorState> appMainNavigatorKey = GlobalKey<NavigatorState>();
 
 class TrainingAcademyApp extends StatelessWidget {
-  const TrainingAcademyApp({super.key});
+  TrainingAcademyApp({super.key});
+  ThemeCubit themeCubit = ThemeCubit()..loadTheme();
+  initState() {
+    appMainNavigatorKey = GlobalKey<NavigatorState>();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => ThemeCubit()..loadTheme())],
+      providers: [BlocProvider(create: (_) => themeCubit)],
       child: LayoutBuilder(
-        builder: (_, __) => MaterialApp(
-          navigatorKey: appMainNavigatorKey,
+        builder: (_, __) => MaterialApp.router(
+          key: appMainNavigatorKey,
           title: 'Training Academy',
+          locale: themeCubit.state.locale,
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: AppLocalizations.supportedLocales,
           theme: ThemeData(useMaterial3: true, hoverColor: Colors.transparent),
-          home: LoginPage(),
+          routerConfig: Routing.router,
         ),
       ),
     );

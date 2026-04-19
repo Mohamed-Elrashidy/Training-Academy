@@ -9,7 +9,7 @@ class CustomColorEntity {
   Color darkColor;
   CustomColorEntity({required this.lightColor, required this.darkColor});
   Color get color =>
-      appMainNavigatorKey.currentContext!.read<ThemeCubit>().isDarkMode
+      appMainNavigatorKey.currentContext!.read<ThemeCubit>().state.isDarkMode
       ? darkColor
       : lightColor;
 }

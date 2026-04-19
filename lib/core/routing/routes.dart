@@ -1,3 +1,3 @@
-class Routing{
+class Routes {
   static String loginPage = '/login';
 }

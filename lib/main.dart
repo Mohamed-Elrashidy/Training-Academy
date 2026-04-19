@@ -17,6 +17,6 @@ Future<void> main() async {
     // Configure Session Replay
     options.replay.sessionSampleRate = 0.1;
     options.replay.onErrorSampleRate = 1.0;
-  }, appRunner: () => runApp(SentryWidget(child: const TrainingAcademyApp())));
+  }, appRunner: () => runApp(SentryWidget(child: TrainingAcademyApp())));
   // TODO: Remove this line after sending the first sample event to sentry.
 }
