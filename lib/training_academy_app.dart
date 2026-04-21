@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';
 
 import 'core/routing/routing.dart';
 import 'core/theme/theme_cubit.dart';
@@ -23,7 +24,10 @@ class TrainingAcademyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (_) => themeCubit)],
+      providers: [
+        BlocProvider(create: (_) => themeCubit),
+        BlocProvider(create: (_) => AuthenticationCubit()),
+      ],
       child: LayoutBuilder(
         builder: (_, __) => MaterialApp.router(
           key: appMainNavigatorKey,

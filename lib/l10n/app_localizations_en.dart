@@ -28,4 +28,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get forgotPassword => 'Forgot Password?';
+
+  @override
+  String get createAccount => 'Create Account';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
+  String get alreadyHaveAnAccount => 'Already have an account?';
 }

@@ -6,5 +6,11 @@
   "login": "Login",
   "dontHaveAnAccount": "Don't have an account?",
   "signUp": "Sign Up",
-  "forgotPassword": "Forgot Password?"
+  "forgotPassword": "Forgot Password?",
+    "createAccount": "Create Account",
+    "fullName": "Full Name",
+    "confirmPassword": "Confirm Password",
+    "alreadyHaveAnAccount": "Already have an account?"
+
+
 }

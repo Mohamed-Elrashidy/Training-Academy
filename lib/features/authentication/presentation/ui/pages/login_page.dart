@@ -1,12 +1,15 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_acedamy/core/extensions/context_extensions.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
 import 'package:training_acedamy/core/theme/text_styles.dart';
-import 'package:training_acedamy/core/widgets/custom_scaffold.dart';
 import 'package:training_acedamy/core/widgets/fields/custom_text_field.dart';
 import 'package:training_acedamy/core/widgets/media/banner_svg_handler.dart';
+import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
 
+import '../../../../../core/routing/routes.dart';
 import '../../../../../core/widgets/buttons/custom_text_button.dart';
 import '../../../../../core/widgets/spacers/vertical_spacer.dart';
 
@@ -56,13 +59,14 @@ class _LoginPageState extends State<LoginPage> {
                     CustomTextField(
                       controller: passwordController,
                       hintText: l10n.password,
+                      isPassword: true,
                     ),
                     VerticalSpacer(height: 16),
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
                         l10n.forgotPassword,
-                        style: AppTextStyles.bodySmall,
+                        style: AppTextStyles.labelSmall,
                       ),
                     ),
                     VerticalSpacer(height: 31),
@@ -76,6 +80,8 @@ class _LoginPageState extends State<LoginPage> {
                           TextSpan(
                             text: l10n.signUp,
                             style: AppTextStyles.labelSmall,
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () => context.push(Routes.signupPage),
                           ),
                         ],
                       ),

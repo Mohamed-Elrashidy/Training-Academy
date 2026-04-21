@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
 
-import '../theme/app_custom_color.dart';
+import '../../theme/app_custom_color.dart';
 
 class CustomScaffold extends StatelessWidget {
   CustomScaffold({required this.body, this.usePadding = true, super.key});

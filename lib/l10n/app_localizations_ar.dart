@@ -28,4 +28,16 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get forgotPassword => 'هل نسيت كلمة المرور؟';
+
+  @override
+  String get createAccount => 'إنشاء حساب';
+
+  @override
+  String get fullName => 'الاسم الكامل';
+
+  @override
+  String get confirmPassword => 'تأكيد كلمة المرور';
+
+  @override
+  String get alreadyHaveAnAccount => 'هل لديك حساب بالفعل؟';
 }

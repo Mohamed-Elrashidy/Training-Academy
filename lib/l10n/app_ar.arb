@@ -6,5 +6,9 @@
 "login": "تسجيل الدخول",
 "dontHaveAnAccount": "ليس لديك حساب؟",
 "signUp": "إنشاء حساب",
-"forgotPassword": "هل نسيت كلمة المرور؟"
+"forgotPassword": "هل نسيت كلمة المرور؟",
+"createAccount": "إنشاء حساب",
+"fullName": "الاسم الكامل",
+"confirmPassword": "تأكيد كلمة المرور",
+"alreadyHaveAnAccount": "هل لديك حساب بالفعل؟"
 }
