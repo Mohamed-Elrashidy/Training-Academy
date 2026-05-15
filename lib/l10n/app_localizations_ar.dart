@@ -40,4 +40,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get alreadyHaveAnAccount => 'هل لديك حساب بالفعل؟';
+
+  @override
+  String get emailAlreadyInUse => 'عنوان البريد الإلكتروني مستخدم بالفعل.';
+
+  @override
+  String get invalidCredentials => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get accountInactive => 'حسابك غير نشط. يرجى الاتصال بالدعم.';
 }

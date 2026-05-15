@@ -40,4 +40,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get alreadyHaveAnAccount => 'Already have an account?';
+
+  @override
+  String get emailAlreadyInUse => 'The email address is already in use.';
+
+  @override
+  String get invalidCredentials => 'Invalid email or password.';
+
+  @override
+  String get accountInactive => 'Your account is inactive. Please contact support.';
 }

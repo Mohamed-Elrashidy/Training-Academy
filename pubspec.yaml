@@ -43,6 +43,7 @@ dependencies:
   hive_ce: ^2.19.3
   flutter_svg: ^2.2.4
   dart_either: ^2.1.0
+  dio: ^5.9.2
   
 dev_dependencies:
   sentry_dart_plugin: ^3.2.1

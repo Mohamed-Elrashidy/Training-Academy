@@ -10,5 +10,8 @@
 "createAccount": "إنشاء حساب",
 "fullName": "الاسم الكامل",
 "confirmPassword": "تأكيد كلمة المرور",
-"alreadyHaveAnAccount": "هل لديك حساب بالفعل؟"
+"alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
+"emailAlreadyInUse" : "عنوان البريد الإلكتروني مستخدم بالفعل.",
+"invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+"accountInactive": "حسابك غير نشط. يرجى الاتصال بالدعم."
 }

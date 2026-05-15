@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:training_acedamy/core/configurations/app_configurations.dart';
 import 'package:training_acedamy/training_academy_app.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  print("App Configurations key for supabase ${AppConfigurations.supabaseKey}");
   await SentryFlutter.init((options) {
     options.dsn =
         'https://c0940d9846d3edd43f62b1abf696c65b@o4510714534887424.ingest.de.sentry.io/4510714539081808';
