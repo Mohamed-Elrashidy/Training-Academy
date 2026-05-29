@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:training_acedamy/core/configurations/app_configurations.dart';
+import 'package:training_acedamy/core/network/base_query_parameter_model.dart';
 import 'package:training_acedamy/core/network/supbapase_constants.dart';
 
 class DioHandler {
@@ -18,6 +19,23 @@ class DioHandler {
       ),
     );
   }
+
+  DioHandler._coinGecko() {
+    _dio = Dio(
+      BaseOptions(
+        baseUrl: "https://api.coingecko.com/api/v3",
+        connectTimeout: const Duration(seconds: 20),
+        receiveTimeout: const Duration(seconds: 20),
+        sendTimeout: const Duration(seconds: 20),
+        headers: {
+          "Content-Type": "application/json",
+          "accept": "application/json",
+          'x-cg-demo-api-key': 'CG-r7uJPXipmRgQTS87hVPxAksD',
+        },
+      ),
+    );
+  }
+
   late final Dio _dio;
   DioHandler supabase = DioHandler._supapase();
 
@@ -32,9 +50,9 @@ class DioHandler {
   /// Returns: Future<Response<dynamic>>
   Future<Response<dynamic>> getRequest(
     String path, {
-    Map<String, dynamic>? queryParameters,
+    BaseQueryParameterModel? queryParameters,
   }) {
-    return _dio.get(path, queryParameters: queryParameters);
+    return _dio.get(path, queryParameters: queryParameters?.toMap());
   }
 
   /// Function Name: postRequest

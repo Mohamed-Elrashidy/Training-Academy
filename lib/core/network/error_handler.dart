@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:training_acedamy/core/network/api_error_model.dart';
 import 'package:training_acedamy/core/network/data_source.dart';
 import 'package:training_acedamy/training_academy_app.dart';
@@ -30,5 +31,9 @@ abstract class ErrorHandler {
           code: 'account-inactive',
         );
     }
+  }
+
+  static ApiErrorModel handleError(Object error) {
+    return handleApiError(DataSource.accountInactive);
   }
 }
