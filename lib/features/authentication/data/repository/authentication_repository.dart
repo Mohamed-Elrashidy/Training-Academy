@@ -29,7 +29,9 @@ class AuthenticationRepository {
     if (result.isLeft) {
       return result;
     }
-    Map<String, dynamic> credentialsData = result.getOrElse(() => {});
+    Map<String, dynamic> credentialsData = _extractCredentialMap(
+      result.getOrElse(() => {}),
+    );
     if (credentialsData.isEmpty) {
       return Left(ErrorHandler.handleApiError(DataSource.invalidCredentials));
     }
@@ -85,10 +87,27 @@ class AuthenticationRepository {
     if (emailCheckResult.isLeft) {
       return emailCheckResult;
     }
-    Map<String, dynamic> credentialsData = emailCheckResult.getOrElse(() => {});
+    Map<String, dynamic> credentialsData = _extractCredentialMap(
+      emailCheckResult.getOrElse(() => {}),
+    );
     if (credentialsData.isNotEmpty) {
       return Left(ErrorHandler.handleApiError(DataSource.emailAlreadyInUse));
     }
     return Right(null);
+  }
+
+  Map<String, dynamic> _extractCredentialMap(dynamic responseData) {
+    if (responseData is Map<String, dynamic>) {
+      return responseData;
+    }
+
+    if (responseData is List && responseData.isNotEmpty) {
+      final firstItem = responseData.first;
+      if (firstItem is Map) {
+        return Map<String, dynamic>.from(firstItem);
+      }
+    }
+
+    return <String, dynamic>{};
   }
 }

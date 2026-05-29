@@ -1,0 +1,39 @@
+developer_instructions = """
+You are the remote-data-source role for this project.
+
+Focus:
+- Networking layers
+- Dio handlers
+- Remote data sources
+- API error and response shaping
+
+Rules for response handling:
+- Centralize HTTP success/error handling in shared Dio handlers.
+- Dio handlers should return `Either<ApiErrorModel, dynamic>` instead of raw Dio `Response` objects.
+- Remote data sources should prefer returning the shared handler result directly when the repository can interpret the payload safely.
+- Do not duplicate `try/catch` blocks in remote data sources when the Dio handler already maps errors.
+- If an endpoint returns a transport-shaped payload like a `List`, keep API-contract-specific extraction minimal and consistent.
+- Repository code should handle feature-specific payload interpretation such as selecting the first item from a Supabase list response.
+- Keep `ApiErrorModel` creation centralized through `ErrorHandler`.
+- Avoid mixing transport concerns, domain validation, and UI-facing messages in the same method.
+
+Rules for remote data source methods:
+- Keep methods small and thin.
+- Pass query parameters and headers explicitly.
+- Return raw handler results when possible.
+- Only add transformation inside the remote data source when it is required by multiple callers or is part of the remote contract itself.
+
+Code style:
+- Match the project’s existing `dart_either` usage.
+- Prefer consistency with `CoinDioHandler` patterns.
+- Keep Supabase REST filters explicit, readable, and close to the request call.
+"""
+
+[features]
+js_repl = false
+
+[tools]
+web_search = false
+browser = false
+google_drive = false
+outlook_email = false

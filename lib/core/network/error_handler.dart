@@ -22,7 +22,6 @@ abstract class ErrorHandler {
           )!.invalidCredentials,
           code: 'invalid-credentials',
         );
-        throw UnimplementedError();
       case DataSource.accountInactive:
         return ApiErrorModel(
           message: AppLocalizations.of(
@@ -34,6 +33,28 @@ abstract class ErrorHandler {
   }
 
   static ApiErrorModel handleError(Object error) {
-    return handleApiError(DataSource.accountInactive);
+    if (error is DioException) {
+      final responseData = error.response?.data;
+      if (responseData is Map<String, dynamic>) {
+        return ApiErrorModel(
+          message:
+              responseData['message']?.toString() ??
+              responseData['error_description']?.toString() ??
+              error.message ??
+              'Unexpected network error',
+          code:
+              responseData['code']?.toString() ??
+              error.response?.statusCode?.toString() ??
+              'dio-error',
+        );
+      }
+
+      return ApiErrorModel(
+        message: error.message ?? 'Unexpected network error',
+        code: error.response?.statusCode?.toString() ?? 'dio-error',
+      );
+    }
+
+    return ApiErrorModel(message: error.toString(), code: 'unexpected-error');
   }
 }
