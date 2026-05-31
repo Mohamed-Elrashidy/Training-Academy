@@ -22,40 +22,4 @@ class SupabaseAuthenticationRemoteDataSource
       },
     );
   }
-
-  @override
-  Future<Either<ApiErrorModel, dynamic>> signUpWithEmailAndPassword({
-    CredentialModel? credential,
-  }) async {
-    if (credential == null) {
-      return Left(
-        ApiErrorModel(
-          message: 'Credential payload is required.',
-          code: 'missing-credential-payload',
-        ),
-      );
-    }
-
-    final response = await _supabaseClient.postRequest(
-      CredentialModel.tableName,
-      data: credential.toMap(),
-      queryParameters: {'select': '*'},
-      headers: {'Prefer': 'return=representation'},
-    );
-
-    return response.fold(
-      ifLeft: (error) => Left(error),
-      ifRight: (responseData) {
-        if (responseData is List && responseData.isNotEmpty) {
-          return Right(Map<String, dynamic>.from(responseData.first as Map));
-        }
-
-        if (responseData is Map<String, dynamic>) {
-          return Right(responseData);
-        }
-
-        return Right(credential.toMap());
-      },
-    );
-  }
 }

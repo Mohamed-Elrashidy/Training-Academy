@@ -7,7 +7,6 @@ import 'package:training_acedamy/features/authentication/presentation/controller
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
 
-import '../../../../../core/enums/accounts/user_type.dart';
 import '../../../../../core/extensions/context_extensions.dart';
 import '../../../../../core/extensions/extension.dart';
 import '../../../../../core/theme/text_styles.dart';
@@ -26,14 +25,16 @@ class SignupPage extends StatefulWidget {
 }
 
 class _SignupPageState extends State<SignupPage> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
     confirmPasswordController.dispose();
@@ -86,8 +87,13 @@ class _SignupPageState extends State<SignupPage> {
                                   ),
                                   VerticalSpacer(height: 32),
                                   CustomTextField(
-                                    controller: nameController,
-                                    hintText: l10n.fullName,
+                                    controller: firstNameController,
+                                    hintText: l10n.firstName,
+                                  ),
+                                  VerticalSpacer(height: 16),
+                                  CustomTextField(
+                                    controller: lastNameController,
+                                    hintText: l10n.lastName,
                                   ),
                                   VerticalSpacer(height: 16),
                                   CustomTextField(
@@ -124,8 +130,12 @@ class _SignupPageState extends State<SignupPage> {
                                         .signupWithEmailAndPassword(
                                           email: emailController.text.trim(),
                                           password: passwordController.text,
-                                          userType: UserType.client,
-                                          name: nameController.text.trim(),
+                                          confirmPassword:
+                                              confirmPasswordController.text,
+                                          firstName: firstNameController.text
+                                              .trim(),
+                                          lastName: lastNameController.text
+                                              .trim(),
                                         ),
                                   ),
                                   VerticalSpacer(height: 16),

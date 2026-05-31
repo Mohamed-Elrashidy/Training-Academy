@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:training_acedamy/core/network/api_error_model.dart';
 import 'package:training_acedamy/features/authentication/data/repository/authentication_repository.dart';
+import 'package:training_acedamy/features/authentication/data/repository/signup_repository.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
-
-import '../../../../core/enums/accounts/user_type.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationInitialState());
@@ -23,25 +23,66 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
   AuthenticationRepository authenticationRemoteDataSource =
       AuthenticationRepository();
+  SignupRepository signupRepository = SignupRepository();
 
   Future<void> signupWithEmailAndPassword({
     required String email,
     required String password,
-    required UserType userType,
-    required String name,
+    required String confirmPassword,
+    required String firstName,
+    required String lastName,
   }) async {
+    final trimmedFirstName = firstName.trim();
+    final trimmedLastName = lastName.trim();
+    final trimmedEmail = email.trim();
+
+    if (trimmedFirstName.isEmpty) {
+      emit(
+        SignupFailureState(
+          ApiErrorModel(
+            message: 'First name is required.',
+            code: 'first-name-required',
+          ),
+        ),
+      );
+      return;
+    }
+
+    if (trimmedLastName.isEmpty) {
+      emit(
+        SignupFailureState(
+          ApiErrorModel(
+            message: 'Last name is required.',
+            code: 'last-name-required',
+          ),
+        ),
+      );
+      return;
+    }
+
+    if (password != confirmPassword) {
+      emit(
+        SignupFailureState(
+          ApiErrorModel(
+            message: 'Password and confirm password do not match.',
+            code: 'password-mismatch',
+          ),
+        ),
+      );
+      return;
+    }
+
     emit(SignupLoadingState());
-    await Future.delayed(const Duration(seconds: 2));
-    final result = await authenticationRemoteDataSource
-        .signupWithEmailAndPassword(
-          email: email,
-          password: password,
-          userType: userType,
-        );
+    final result = await signupRepository.signupClient(
+      email: trimmedEmail,
+      password: password,
+      firstName: trimmedFirstName,
+      lastName: trimmedLastName,
+    );
 
     result.fold(
       ifLeft: (error) => emit(SignupFailureState(error)),
-      ifRight: (credential) => emit(SignupSuccessState(credential)),
+      ifRight: (signupResult) => emit(SignupSuccessState(signupResult)),
     );
   }
 }

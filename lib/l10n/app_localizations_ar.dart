@@ -36,6 +36,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get fullName => 'الاسم الكامل';
 
   @override
+  String get firstName => 'الاسم الأول';
+
+  @override
+  String get lastName => 'اسم العائلة';
+
+  @override
   String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
@@ -45,7 +51,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailAlreadyInUse => 'عنوان البريد الإلكتروني مستخدم بالفعل.';
 
   @override
-  String get invalidCredentials => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+  String get invalidCredentials =>
+      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
   @override
   String get accountInactive => 'حسابك غير نشط. يرجى الاتصال بالدعم.';

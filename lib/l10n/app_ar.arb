@@ -9,6 +9,8 @@
 "forgotPassword": "هل نسيت كلمة المرور؟",
 "createAccount": "إنشاء حساب",
 "fullName": "الاسم الكامل",
+"firstName": "الاسم الأول",
+"lastName": "اسم العائلة",
 "confirmPassword": "تأكيد كلمة المرور",
 "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
 "emailAlreadyInUse" : "عنوان البريد الإلكتروني مستخدم بالفعل.",

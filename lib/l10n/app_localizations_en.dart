@@ -36,6 +36,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fullName => 'Full Name';
 
   @override
+  String get firstName => 'First Name';
+
+  @override
+  String get lastName => 'Last Name';
+
+  @override
   String get confirmPassword => 'Confirm Password';
 
   @override
@@ -48,7 +54,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidCredentials => 'Invalid email or password.';
 
   @override
-  String get accountInactive => 'Your account is inactive. Please contact support.';
+  String get accountInactive =>
+      'Your account is inactive. Please contact support.';
 
   @override
   String get errorTitle => 'Error';

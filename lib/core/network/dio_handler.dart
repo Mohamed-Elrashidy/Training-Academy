@@ -63,7 +63,7 @@ class DioHandler {
   /// - queryParameters: optional query map
   /// - headers: optional request headers
   ///
-  /// Returns: Future<Either<ApiErrorModel, dynamic>>
+  /// Returns the Supabase RPC response or an API error.
   Future<Either<ApiErrorModel, dynamic>> postRequest(
     String path, {
     dynamic data,
@@ -81,6 +81,23 @@ class DioHandler {
     } catch (error) {
       return Left(ErrorHandler.handleError(error));
     }
+  }
+
+  /// Function Name: rpcRequest
+  ///
+  /// Purpose: Calls a Supabase PostgREST RPC function.
+  ///
+  /// Parameters:
+  /// - functionName: database function name without the rpc/ prefix
+  /// - data: request body payload
+  ///
+  /// Returns the Supabase RPC response or an API error.
+  Future<Either<ApiErrorModel, dynamic>> rpcRequest(
+    String functionName, {
+    dynamic data,
+    Map<String, dynamic>? headers,
+  }) async {
+    return postRequest('rpc/$functionName', data: data, headers: headers);
   }
 
   /// Function Name: patchRequest
