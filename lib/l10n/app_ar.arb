@@ -13,5 +13,7 @@
 "alreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
 "emailAlreadyInUse" : "عنوان البريد الإلكتروني مستخدم بالفعل.",
 "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
-"accountInactive": "حسابك غير نشط. يرجى الاتصال بالدعم."
+"accountInactive": "حسابك غير نشط. يرجى الاتصال بالدعم.",
+"errorTitle": "خطأ",
+"ok": "حسنًا"
 }

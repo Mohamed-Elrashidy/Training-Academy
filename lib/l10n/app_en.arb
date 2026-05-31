@@ -10,10 +10,12 @@
     "createAccount": "Create Account",
     "fullName": "Full Name",
     "confirmPassword": "Confirm Password",
-    "alreadyHaveAnAccount": "Already have an account?",
-    "emailAlreadyInUse": "The email address is already in use.",
-    "invalidCredentials": "Invalid email or password.",
-    "accountInactive": "Your account is inactive. Please contact support."
+  "alreadyHaveAnAccount": "Already have an account?",
+  "emailAlreadyInUse": "The email address is already in use.",
+  "invalidCredentials": "Invalid email or password.",
+  "accountInactive": "Your account is inactive. Please contact support.",
+  "errorTitle": "Error",
+  "ok": "OK"
 
 
 }

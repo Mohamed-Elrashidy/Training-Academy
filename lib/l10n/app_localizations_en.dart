@@ -49,4 +49,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get accountInactive => 'Your account is inactive. Please contact support.';
+
+  @override
+  String get errorTitle => 'Error';
+
+  @override
+  String get ok => 'OK';
 }

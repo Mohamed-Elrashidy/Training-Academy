@@ -4,11 +4,30 @@ class AuthenticationState {}
 
 class AuthenticationInitialState extends AuthenticationState {}
 
-class AuthenticationLoadingState extends AuthenticationState {}
+class LoginLoadingState extends AuthenticationState {}
 
-class AuthenticationSuccessState extends AuthenticationState {}
+class LoginSuccessState extends AuthenticationState {
+  final dynamic data;
 
-class AuthenticationFailureState extends AuthenticationState {
+  LoginSuccessState(this.data);
+}
+
+class LoginFailureState extends AuthenticationState {
   final ApiErrorModel error;
-  AuthenticationFailureState(this.error);
+
+  LoginFailureState(this.error);
+}
+
+class SignupLoadingState extends AuthenticationState {}
+
+class SignupSuccessState extends AuthenticationState {
+  final dynamic data;
+
+  SignupSuccessState(this.data);
+}
+
+class SignupFailureState extends AuthenticationState {
+  final ApiErrorModel error;
+
+  SignupFailureState(this.error);
 }

@@ -49,4 +49,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get accountInactive => 'حسابك غير نشط. يرجى الاتصال بالدعم.';
+
+  @override
+  String get errorTitle => 'خطأ';
+
+  @override
+  String get ok => 'حسنًا';
 }

@@ -1,16 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:training_acedamy/core/extensions/context_extensions.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
+import 'package:training_acedamy/core/helpers/dialog_helper.dart';
 import 'package:training_acedamy/core/theme/text_styles.dart';
+import 'package:training_acedamy/core/widgets/buttons/custom_text_button.dart';
 import 'package:training_acedamy/core/widgets/fields/custom_text_field.dart';
+import 'package:training_acedamy/core/widgets/loading/custom_loading_indicator.dart';
 import 'package:training_acedamy/core/widgets/media/banner_svg_handler.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
+import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';
+import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
 
 import '../../../../../core/routing/routes.dart';
-import '../../../../../core/widgets/buttons/custom_text_button.dart';
 import '../../../../../core/widgets/spacers/vertical_spacer.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,64 +39,97 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return CustomScaffold(
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: BlocConsumer<AuthenticationCubit, AuthenticationState>(
+        listenWhen: (_, state) =>
+            state is LoginFailureState || state is LoginSuccessState,
+        listener: (context, state) {
+          if (state is LoginFailureState) {
+            DialogHelper.showErrorDialog(
+              context: context,
+              description: state.error.message,
+            );
+          }
+        },
+        builder: (context, state) {
+          final isLoading = state is LoginLoadingState;
+
+          return Stack(
             children: [
-              Row(),
-              SizedBox(
-                width: context.isMobile ? null : 500.sp,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    BannerSvgHandler(
-                      svgPath:
-                          "assets/authentication_assets/svg_images/login_image.svg",
-                    ),
-                    Text(l10n.welcome, style: AppTextStyles.titleLarge),
-                    VerticalSpacer(height: 31),
-                    CustomTextField(
-                      controller: emailController,
-                      hintText: l10n.email,
-                    ),
-                    VerticalSpacer(height: 16),
-                    CustomTextField(
-                      controller: passwordController,
-                      hintText: l10n.password,
-                      isPassword: true,
-                    ),
-                    VerticalSpacer(height: 16),
-                    Align(
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Text(
-                        l10n.forgotPassword,
-                        style: AppTextStyles.labelSmall,
+              Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(),
+                      SizedBox(
+                        width: context.isMobile ? null : 500.sp,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            BannerSvgHandler(
+                              svgPath:
+                                  "assets/authentication_assets/svg_images/login_image.svg",
+                            ),
+                            Text(l10n.welcome, style: AppTextStyles.titleLarge),
+                            VerticalSpacer(height: 31),
+                            CustomTextField(
+                              controller: emailController,
+                              hintText: l10n.email,
+                            ),
+                            VerticalSpacer(height: 16),
+                            CustomTextField(
+                              controller: passwordController,
+                              hintText: l10n.password,
+                              isPassword: true,
+                            ),
+                            VerticalSpacer(height: 16),
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: Text(
+                                l10n.forgotPassword,
+                                style: AppTextStyles.labelSmall,
+                              ),
+                            ),
+                            VerticalSpacer(height: 31),
+                            CustomTextButton(
+                              width: 150.sp,
+                              buttonText: l10n.login,
+                              isEnabled: !isLoading,
+                              onTap: () => context
+                                  .read<AuthenticationCubit>()
+                                  .loginWithEmailAndPassword(
+                                    email: emailController.text.trim(),
+                                    password: passwordController.text,
+                                  ),
+                            ),
+                            VerticalSpacer(height: 16),
+                            RichText(
+                              text: TextSpan(
+                                text: '${l10n.dontHaveAnAccount} ',
+                                style: AppTextStyles.bodySmall,
+                                children: [
+                                  TextSpan(
+                                    text: l10n.signUp,
+                                    style: AppTextStyles.labelSmall,
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () =>
+                                          context.push(Routes.signupPage),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    VerticalSpacer(height: 31),
-                    CustomTextButton(width: 150.sp, buttonText: l10n.login),
-                    VerticalSpacer(height: 16),
-                    RichText(
-                      text: TextSpan(
-                        text: l10n.dontHaveAnAccount + " ",
-                        style: AppTextStyles.bodySmall,
-                        children: [
-                          TextSpan(
-                            text: l10n.signUp,
-                            style: AppTextStyles.labelSmall,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () => context.push(Routes.signupPage),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
+              if (isLoading)
+                const Positioned.fill(child: CustomLoadingIndicator()),
             ],
-          ),
-        ),
+          );
+        },
       ),
     );
   }

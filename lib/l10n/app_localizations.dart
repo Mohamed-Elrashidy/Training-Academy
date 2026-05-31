@@ -178,6 +178,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your account is inactive. Please contact support.'**
   String get accountInactive;
+
+  /// No description provided for @errorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get errorTitle;
+
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
