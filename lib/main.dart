@@ -1,25 +1,20 @@
+import 'dart:ui';
+
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:training_acedamy/core/configurations/app_configurations.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:training_acedamy/training_academy_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  print("App Configurations key for supabase ${AppConfigurations.supabaseKey}");
-  await SentryFlutter.init((options) {
-    options.dsn =
-        'https://c0940d9846d3edd43f62b1abf696c65b@o4510714534887424.ingest.de.sentry.io/4510714539081808';
-    options.sendDefaultPii = true;
-    options.enableLogs = true;
-    // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing.
-    // We recommend adjusting this value in production.
-    options.tracesSampleRate = 1.0;
-    // The sampling rate for profiling is relative to tracesSampleRate
-    // Setting to 1.0 will profile 100% of sampled transactions:
-    options.profilesSampleRate = 1.0;
-    // Configure Session Replay
-    options.replay.sessionSampleRate = 0.1;
-    options.replay.onErrorSampleRate = 1.0;
-  }, appRunner: () => runApp(SentryWidget(child: TrainingAcademyApp())));
-  // TODO: Remove this line after sending the first sample event to sentry.
+
+  await Firebase.initializeApp();
+
+  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  PlatformDispatcher.instance.onError = (error, stack) {
+    FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+    return true;
+  };
+  runApp(TrainingAcademyApp());
 }

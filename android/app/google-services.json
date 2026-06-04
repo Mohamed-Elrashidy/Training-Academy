@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "489539373810",
+    "project_id": "e-learning-platform-10cd6",
+    "storage_bucket": "e-learning-platform-10cd6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489539373810:android:d4272c6fccaf79f1665e6b",
+        "android_client_info": {
+          "package_name": "com.example.e_learning_platform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489539373810-ggbuikjpu7e8mmk00kqa766g1ftfe81f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuLHdHjtDQtLZVw01GjFCUw0Ue0rYMPvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489539373810-ggbuikjpu7e8mmk00kqa766g1ftfe81f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "489539373810-m8qmh7u9t9blf1sidhpci2lvq7jj1crs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eLearningPlatform"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489539373810:android:a6abbdc59919bd0a665e6b",
+        "android_client_info": {
+          "package_name": "com.example.training_acedamy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489539373810-ggbuikjpu7e8mmk00kqa766g1ftfe81f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuLHdHjtDQtLZVw01GjFCUw0Ue0rYMPvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489539373810-ggbuikjpu7e8mmk00kqa766g1ftfe81f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "489539373810-m8qmh7u9t9blf1sidhpci2lvq7jj1crs.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eLearningPlatform"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
