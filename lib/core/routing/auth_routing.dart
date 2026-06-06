@@ -23,12 +23,14 @@ class AuthenticationRouter {
 
         routes: [
           GoRoute(
+            name: Routes.loginPage,
             path: Routes.loginPage,
             builder: (BuildContext context, GoRouterState state) {
               return LoginPage();
             },
           ),
           GoRoute(
+            name: Routes.signupPage,
             path: Routes.signupPage,
             builder: (BuildContext context, GoRouterState state) {
               return SignupPage();

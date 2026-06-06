@@ -1,8 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:training_acedamy/core/network/api_error_model.dart';
+import 'package:training_acedamy/core/service/crashlytics/crashlytics_service.dart';
 import 'package:training_acedamy/features/authentication/data/repository/authentication_repository.dart';
 import 'package:training_acedamy/features/authentication/data/repository/signup_repository.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
+
+import '../../data/models/credential_model.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationInitialState());
@@ -11,14 +14,52 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     required String password,
   }) async {
     emit(LoginLoadingState());
-
-    final result = await authenticationRemoteDataSource
-        .signInWithEmailAndPassword(email: email, password: password);
-
-    result.fold(
-      ifLeft: (error) => emit(LoginFailureState(error)),
-      ifRight: (credential) => emit(LoginSuccessState(credential)),
+    await CrashlyticsService.instance.log('Authentication: login attempt started');
+    await CrashlyticsService.instance.setCustomKey(
+      'auth_method',
+      'email_password',
     );
+
+    try {
+      final result = await authenticationRemoteDataSource
+          .signInWithEmailAndPassword(email: email, password: password);
+
+      await result.fold(
+        ifLeft: (error) async {
+          await CrashlyticsService.instance.log(
+            'Authentication: login failed with handled error ${error.code}',
+          );
+          emit(LoginFailureState(error));
+        },
+        ifRight: (credential) async {
+          if (credential is CredentialModel) {
+            await _setCredentialCrashlyticsContext(credential);
+          }
+          await CrashlyticsService.instance.log(
+            'Authentication: login completed successfully',
+          );
+          emit(LoginSuccessState(credential));
+        },
+      );
+    } catch (error, stackTrace) {
+      await CrashlyticsService.instance.recordNonFatal(
+        error,
+        stackTrace,
+        reason: 'Unexpected login flow failure',
+        extraKeys: {
+          'feature': 'authentication',
+          'action': 'login_with_email_and_password',
+        },
+      );
+      emit(
+        LoginFailureState(
+          ApiErrorModel(
+            message: 'Something went wrong. Please try again.',
+            code: 'unexpected-login-error',
+          ),
+        ),
+      );
+    }
   }
 
   AuthenticationRepository authenticationRemoteDataSource =
@@ -73,16 +114,68 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     }
 
     emit(SignupLoadingState());
-    final result = await signupRepository.signupClient(
-      email: trimmedEmail,
-      password: password,
-      firstName: trimmedFirstName,
-      lastName: trimmedLastName,
+    await CrashlyticsService.instance.log('Authentication: signup attempt started');
+    await CrashlyticsService.instance.setCustomKey(
+      'auth_method',
+      'email_password',
     );
 
-    result.fold(
-      ifLeft: (error) => emit(SignupFailureState(error)),
-      ifRight: (signupResult) => emit(SignupSuccessState(signupResult)),
+    try {
+      final result = await signupRepository.signupClient(
+        email: trimmedEmail,
+        password: password,
+        firstName: trimmedFirstName,
+        lastName: trimmedLastName,
+      );
+
+      await result.fold(
+        ifLeft: (error) async {
+          await CrashlyticsService.instance.log(
+            'Authentication: signup failed with handled error ${error.code}',
+          );
+          emit(SignupFailureState(error));
+        },
+        ifRight: (signupResult) async {
+          await _setCredentialCrashlyticsContext(signupResult.credential);
+          await CrashlyticsService.instance.log(
+            'Authentication: signup completed successfully',
+          );
+          emit(SignupSuccessState(signupResult));
+        },
+      );
+    } catch (error, stackTrace) {
+      await CrashlyticsService.instance.recordNonFatal(
+        error,
+        stackTrace,
+        reason: 'Unexpected signup flow failure',
+        extraKeys: {
+          'feature': 'authentication',
+          'action': 'signup_with_email_and_password',
+        },
+      );
+      emit(
+        SignupFailureState(
+          ApiErrorModel(
+            message: 'Something went wrong. Please try again.',
+            code: 'unexpected-signup-error',
+          ),
+        ),
+      );
+    }
+  }
+
+  Future<void> _setCredentialCrashlyticsContext(
+    CredentialModel credential,
+  ) async {
+    final userIdentifier = credential.id ?? credential.email;
+    await CrashlyticsService.instance.setUserContext(
+      userId: userIdentifier,
+      accountType: credential.userType.name,
+      role: credential.userType.name,
+    );
+    await CrashlyticsService.instance.setCustomKey(
+      'account_status',
+      credential.accountStatus.name,
     );
   }
 }

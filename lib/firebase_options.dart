@@ -27,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -77,6 +74,16 @@ class DefaultFirebaseOptions {
     projectId: 'e-learning-platform-10cd6',
     storageBucket: 'e-learning-platform-10cd6.firebasestorage.app',
     iosBundleId: 'com.example.trainingAcedamy',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyDZIGwYWMsLuvNZ0PpFP6bwt9s4IB-bLP8',
+    appId: '1:489539373810:web:17e09dd6b1ae95d7665e6b',
+    messagingSenderId: '489539373810',
+    projectId: 'e-learning-platform-10cd6',
+    authDomain: 'e-learning-platform-10cd6.firebaseapp.com',
+    storageBucket: 'e-learning-platform-10cd6.firebasestorage.app',
+    measurementId: 'G-KB09DPP6Z0',
   );
 
 }
