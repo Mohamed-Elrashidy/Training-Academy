@@ -23,7 +23,6 @@ class ClientAccountModel {
     this.profilePictureUrl,
   });
 
-  static const String tableName = 'client_accounts';
   static const String idField = 'id';
   static const String credentialIdField = 'credential_id';
   static const String createdAtField = 'created_at';

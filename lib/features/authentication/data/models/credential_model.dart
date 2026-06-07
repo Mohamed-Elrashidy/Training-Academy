@@ -1,5 +1,4 @@
 import 'package:training_acedamy/core/enums/accounts/user_type.dart';
-
 import '../../../../core/enums/accounts/account_status.dart';
 
 class CredentialModel {
@@ -25,8 +24,6 @@ class CredentialModel {
     this.accessEndTime,
   });
 
-  static const String tableName = 'credentials';
-  static const String collectionName = tableName;
   static const String idField = 'id';
   static const String createdAtField = 'created_at';
   static const String emailField = 'email';

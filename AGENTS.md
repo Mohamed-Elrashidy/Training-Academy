@@ -119,6 +119,7 @@ Additional rules:
 
 - Prefer shared handlers in `lib/core/network/`.
 - Keep Supabase filters explicit and readable near the request.
+- Store Supabase table and collection names in `lib/core/network/supbapase_constants.dart` instead of duplicating them in models.
 - Prefer RPC helpers for database functions when the backend already exposes them.
 - Avoid response-shape assumptions in the UI layer.
 
