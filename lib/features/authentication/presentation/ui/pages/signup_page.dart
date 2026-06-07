@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:training_acedamy/core/helpers/dialog_helper.dart';
 import 'package:training_acedamy/core/helpers/form_validator.dart';
+import 'package:training_acedamy/core/widgets/check_box/custom_check_box.dart';
+import 'package:training_acedamy/core/theme/app_custom_color.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
+import 'package:training_acedamy/core/widgets/spacers/horizontal_spacer.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
@@ -13,6 +16,7 @@ import '../../../../../core/extensions/extension.dart';
 import '../../../../../core/theme/text_styles.dart';
 import '../../../../../core/widgets/app_bars/custom_app_bar.dart';
 import '../../../../../core/widgets/buttons/custom_text_button.dart';
+import '../../../../../core/widgets/fields/custom_form_field.dart';
 import '../../../../../core/widgets/fields/custom_text_field.dart';
 import '../../../../../core/widgets/loading/custom_loading_indicator.dart';
 import '../../../../../core/widgets/media/banner_svg_handler.dart';
@@ -193,7 +197,64 @@ class _SignupPageState extends State<SignupPage> {
                                       confirmPasswordController:
                                           confirmPasswordController,
                                     ),
+                                    VerticalSpacer(height: 24),
+                                    CustomFormField<bool>(
+                                      initialValue: false,
+                                      autovalidateMode: _hasSubmitted
+                                          ? AutovalidateMode.onUserInteraction
+                                          : AutovalidateMode.disabled,
+                                      validator: (value) => value == true
+                                          ? null
+                                          : l10n.termsAndConditionsRequiredValidation,
+                                      childBuilder: (field) {
+                                        final isChecked = field.value ?? false;
 
+                                        return Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            GestureDetector(
+                                              onTap: () =>
+                                                  field.didChange(!isChecked),
+                                              child: CustomCheckBox(
+                                                size: 16,
+                                                isSelected: isChecked,
+                                              ),
+                                            ),
+                                            HorizontalSpacer(width: 8),
+                                            Expanded(
+                                              child: Wrap(
+                                                children: [
+                                                  Text(
+                                                    '${l10n.iAgreeToThe} ',
+                                                    style: AppTextStyles.small
+                                                        .copyWith(
+                                                          color: AppCustomColor
+                                                              .blackFont
+                                                              .color,
+                                                        ),
+                                                  ),
+                                                  GestureDetector(
+                                                    onTap: () {
+                                                      // TODO: Navigate to the terms and conditions page.
+                                                    },
+                                                    child: Text(
+                                                      l10n.termsAndConditions,
+                                                      style: AppTextStyles.small
+                                                          .copyWith(
+                                                            color: AppCustomColor
+                                                                .primaryColor
+                                                                .color,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    ),
                                     VerticalSpacer(height: 31),
                                     CustomTextButton(
                                       width: 150.sp,

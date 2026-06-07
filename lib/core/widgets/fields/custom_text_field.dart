@@ -1,8 +1,8 @@
-/// ****************** FILE INFO ******************
-/// File Name: custom_text_field.dart
-/// Purpose: A custom text field widget with predefined styling and optional password visibility toggle.
-/// Author: Mohamed Elrashidy
-/// Created At: 19/04/2026
+// ****************** FILE INFO ******************
+// File Name: custom_text_field.dart
+// Purpose: A custom text field widget with predefined styling and optional password visibility toggle.
+// Author: Mohamed Elrashidy
+// Created At: 19/04/2026
 
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
@@ -35,7 +35,7 @@ class CustomTextField extends StatefulWidget {
   /// Parameters:
   /// - none
   ///
-  /// Returns: State<CustomTextField>
+  /// Returns: `State<CustomTextField>`
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -67,7 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   /// Returns: Widget
   @override
   Widget build(BuildContext context) {
-    return CustomFormField(
+    return CustomFormField<String>(
       initialValue: widget.controller.text,
       validator: widget.validator,
       autovalidateMode: widget.autovalidateMode,

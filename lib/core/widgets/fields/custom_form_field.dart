@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
 import 'package:training_acedamy/core/theme/text_styles.dart';
 
-class CustomFormField extends FormField<String> {
+class CustomFormField<T> extends FormField<T> {
   CustomFormField({
-    required Widget Function(FormFieldState<String> field) childBuilder,
+    required Widget Function(FormFieldState<T> field) childBuilder,
     super.initialValue,
     super.validator,
     super.autovalidateMode,

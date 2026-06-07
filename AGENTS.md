@@ -141,6 +141,7 @@ Additional rules:
 - Keep pages focused on composition.
 - Extract repeated feature-specific UI into local `presentation/ui/widgets/`.
 - Respect the existing theme and spacing patterns before introducing new ones.
+- For clickable text or lightweight tap targets, prefer `GestureDetector` over `InkWell` unless the user explicitly wants ripple feedback.
 - Do not create or build test widgets unless the user explicitly asks for them.
 
 ## Form Validation Rules
