@@ -45,6 +45,45 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmPassword => 'Confirm Password';
 
   @override
+  String get emailRequiredValidation => 'Email is required.';
+
+  @override
+  String get emailInvalidValidation => 'Enter a valid email address.';
+
+  @override
+  String get passwordRequiredValidation => 'Password is required.';
+
+  @override
+  String get passwordInvalidValidation => 'Password must be at least 8 characters and include uppercase, lowercase, and a number.';
+
+  @override
+  String get confirmPasswordRequiredValidation => 'Confirm password is required.';
+
+  @override
+  String get confirmPasswordMismatchValidation => 'Password and confirm password do not match.';
+
+  @override
+  String get firstNameRequiredValidation => 'First name is required.';
+
+  @override
+  String get lastNameRequiredValidation => 'Last name is required.';
+
+  @override
+  String get passwordCriteriaMinimumLength => 'At least 8 characters';
+
+  @override
+  String get passwordCriteriaUppercase => 'Contains an uppercase letter';
+
+  @override
+  String get passwordCriteriaLowercase => 'Contains a lowercase letter';
+
+  @override
+  String get passwordCriteriaNumber => 'Contains a number';
+
+  @override
+  String get passwordCriteriaMatch => 'Passwords match';
+
+  @override
   String get alreadyHaveAnAccount => 'Already have an account?';
 
   @override
@@ -54,8 +93,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidCredentials => 'Invalid email or password.';
 
   @override
-  String get accountInactive =>
-      'Your account is inactive. Please contact support.';
+  String get accountInactive => 'Your account is inactive. Please contact support.';
 
   @override
   String get errorTitle => 'Error';

@@ -410,9 +410,9 @@ class AppTextStyles {
   ///
   /// Returns: TextStyle
   static TextStyle get hint => _mainTextStyle.copyWith(
-    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 13,
+    fontSize: AppSizeCheckpointsManager.fontSizeMultiplier() * 12,
     fontWeight: FontWeight.w400,
-    color: AppCustomColor.blackFont.color.withAlpha(150),
+    color: AppCustomColor.hintTextColor.color,
   );
 
   /// Function Name: disabled

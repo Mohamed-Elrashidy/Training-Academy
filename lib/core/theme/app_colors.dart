@@ -12,5 +12,9 @@ class AppColors {
   static Color get darkScaffoldBackground => Color(0xFF121212);
 
   static Color get lightGrey => Color(0xFFF1F3F4);
+  static Color get hintGrey => Color(0xFFB8BCBF);
   static Color get darkGrey => Color(0xFF2C2C2C);
+  static Color get greyColor => Color(0xFF808080);
+
+  static Color get transparent => Color(0x00000000);
 }

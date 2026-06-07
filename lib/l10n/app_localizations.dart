@@ -62,8 +62,7 @@ import 'app_localizations_en.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,18 +82,17 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('ar'),
-    Locale('en'),
+    Locale('en')
   ];
 
   /// No description provided for @email.
@@ -170,6 +167,84 @@ abstract class AppLocalizations {
   /// **'Confirm Password'**
   String get confirmPassword;
 
+  /// No description provided for @emailRequiredValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required.'**
+  String get emailRequiredValidation;
+
+  /// No description provided for @emailInvalidValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email address.'**
+  String get emailInvalidValidation;
+
+  /// No description provided for @passwordRequiredValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required.'**
+  String get passwordRequiredValidation;
+
+  /// No description provided for @passwordInvalidValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters and include uppercase, lowercase, and a number.'**
+  String get passwordInvalidValidation;
+
+  /// No description provided for @confirmPasswordRequiredValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password is required.'**
+  String get confirmPasswordRequiredValidation;
+
+  /// No description provided for @confirmPasswordMismatchValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Password and confirm password do not match.'**
+  String get confirmPasswordMismatchValidation;
+
+  /// No description provided for @firstNameRequiredValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'First name is required.'**
+  String get firstNameRequiredValidation;
+
+  /// No description provided for @lastNameRequiredValidation.
+  ///
+  /// In en, this message translates to:
+  /// **'Last name is required.'**
+  String get lastNameRequiredValidation;
+
+  /// No description provided for @passwordCriteriaMinimumLength.
+  ///
+  /// In en, this message translates to:
+  /// **'At least 8 characters'**
+  String get passwordCriteriaMinimumLength;
+
+  /// No description provided for @passwordCriteriaUppercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Contains an uppercase letter'**
+  String get passwordCriteriaUppercase;
+
+  /// No description provided for @passwordCriteriaLowercase.
+  ///
+  /// In en, this message translates to:
+  /// **'Contains a lowercase letter'**
+  String get passwordCriteriaLowercase;
+
+  /// No description provided for @passwordCriteriaNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Contains a number'**
+  String get passwordCriteriaNumber;
+
+  /// No description provided for @passwordCriteriaMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords match'**
+  String get passwordCriteriaMatch;
+
   /// No description provided for @alreadyHaveAnAccount.
   ///
   /// In en, this message translates to:
@@ -207,8 +282,7 @@ abstract class AppLocalizations {
   String get ok;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -217,26 +291,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['ar', 'en'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar':
-      return AppLocalizationsAr();
-    case 'en':
-      return AppLocalizationsEn();
+    case 'ar': return AppLocalizationsAr();
+    case 'en': return AppLocalizationsEn();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }

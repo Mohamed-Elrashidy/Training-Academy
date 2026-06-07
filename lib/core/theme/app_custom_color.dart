@@ -11,6 +11,16 @@ class AppCustomColor {
     darkColor: AppColors.darkGrey,
   );
 
+  static CustomColorEntity get greyColor => CustomColorEntity(
+    lightColor: AppColors.greyColor,
+    darkColor: AppColors.greyColor,
+  );
+
+  static CustomColorEntity get hintTextColor => CustomColorEntity(
+    lightColor: AppColors.hintGrey,
+    darkColor: AppColors.hintGrey,
+  );
+
   static CustomColorEntity get primaryColor => CustomColorEntity(
     lightColor: AppColors.primaryColor,
     darkColor: AppColors.primaryColor,
@@ -19,5 +29,15 @@ class AppCustomColor {
   static CustomColorEntity get blackFont => CustomColorEntity(
     lightColor: AppColors.blackColor,
     darkColor: AppColors.whiteColor,
+  );
+
+  static CustomColorEntity get whiteColor => CustomColorEntity(
+    lightColor: AppColors.whiteColor,
+    darkColor: AppColors.whiteColor,
+  );
+
+  static CustomColorEntity get transparent => CustomColorEntity(
+    lightColor: AppColors.transparent,
+    darkColor: AppColors.transparent,
   );
 }

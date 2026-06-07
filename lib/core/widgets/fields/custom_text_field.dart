@@ -7,6 +7,8 @@
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
 import 'package:training_acedamy/core/theme/app_custom_color.dart';
+import 'package:training_acedamy/core/theme/text_styles.dart';
+import 'package:training_acedamy/core/widgets/fields/custom_form_field.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -14,6 +16,8 @@ class CustomTextField extends StatefulWidget {
     this.isPassword = false,
     required this.controller,
     this.hintText,
+    this.validator,
+    this.autovalidateMode,
     super.key,
   });
 
@@ -21,6 +25,8 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final TextEditingController controller;
   final String? hintText;
+  final String? Function(String?)? validator;
+  final AutovalidateMode? autovalidateMode;
 
   /// Function Name: createState
   ///
@@ -61,63 +67,74 @@ class _CustomTextFieldState extends State<CustomTextField> {
   /// Returns: Widget
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: TextFormField(
-        controller: widget.controller,
-        readOnly: widget.isReadOnly,
-        obscureText: widget.isPassword ? _isObscured : false,
-        onTapOutside: (event) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        },
-        decoration: InputDecoration(
-          fillColor: AppCustomColor.textFieldFillColor.color,
-          filled: true,
-          hintText: widget.hintText,
-          suffixIcon: widget.isPassword
-              ? IconButton(
-                  hoverColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: _togglePasswordVisibility,
-                  icon: Icon(
-                    _isObscured ? Icons.visibility_off : Icons.visibility,
-                    color: AppCustomColor.primaryColor.color,
-                  ),
-                )
-              : null,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(4.sp)),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.transparent, width: 1.sp),
-            borderRadius: BorderRadius.circular(8.sp),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppCustomColor.primaryColor.color,
-              width: 1.sp,
+    return CustomFormField(
+      initialValue: widget.controller.text,
+      validator: widget.validator,
+      autovalidateMode: widget.autovalidateMode,
+      childBuilder: (field) {
+        return TextField(
+          controller: widget.controller,
+          readOnly: widget.isReadOnly,
+          obscureText: widget.isPassword ? _isObscured : false,
+          onChanged: field.didChange,
+          onTapOutside: (event) {
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
+          decoration: InputDecoration(
+            fillColor: AppCustomColor.textFieldFillColor.color,
+            filled: true,
+            hintText: widget.hintText,
+            hintStyle: AppTextStyles.hint,
+            suffixIcon: widget.isPassword
+                ? IconButton(
+                    hoverColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onPressed: _togglePasswordVisibility,
+                    icon: Icon(
+                      _isObscured ? Icons.visibility_off : Icons.visibility,
+                      color: AppCustomColor.primaryColor.color,
+                    ),
+                  )
+                : null,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(4.sp),
             ),
-            borderRadius: BorderRadius.circular(8.sp),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red, width: 1.sp),
-            borderRadius: BorderRadius.circular(8.sp),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.red, width: 1.sp),
-            borderRadius: BorderRadius.circular(8.sp),
-          ),
-          disabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: AppCustomColor.blackFont.color.withValues(alpha: 0.5),
-              width: 1.sp,
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.transparent, width: 1.sp),
+              borderRadius: BorderRadius.circular(8.sp),
             ),
-            borderRadius: BorderRadius.circular(8.sp),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppCustomColor.primaryColor.color,
+                width: 1.sp,
+              ),
+              borderRadius: BorderRadius.circular(8.sp),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1.sp),
+              borderRadius: BorderRadius.circular(8.sp),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.red, width: 1.sp),
+              borderRadius: BorderRadius.circular(8.sp),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: AppCustomColor.blackFont.color.withValues(alpha: 0.5),
+                width: 1.sp,
+              ),
+              borderRadius: BorderRadius.circular(8.sp),
+            ),
+            errorText: field.hasError ? '' : null,
+            errorStyle: TextStyle(fontSize: 0, height: 0),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 9.sp,
+              vertical: 9.sp,
+            ),
           ),
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 9.sp,
-            vertical: 9.sp,
-          ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

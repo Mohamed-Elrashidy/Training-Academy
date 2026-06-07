@@ -140,12 +140,22 @@ Additional rules:
 - Keep pages focused on composition.
 - Extract repeated feature-specific UI into local `presentation/ui/widgets/`.
 - Respect the existing theme and spacing patterns before introducing new ones.
+- Do not create or build test widgets unless the user explicitly asks for them.
+
+## Form Validation Rules
+
+- Use `Form` with a `GlobalKey<FormState>` for login, signup, and other user-input screens.
+- Keep reusable validator functions in a shared helper such as `lib/core/helpers/form_validator.dart` instead of duplicating inline validation logic across pages.
+- Trigger submission actions only after `formKey.currentState?.validate()` returns true.
+- Pass validators down through reusable field widgets rather than bypassing them with raw `TextFormField` usage in pages.
+- Keep presentation-layer validation focused on form completeness and format; leave async/backend validation in the Cubit, repository, and network layers.
 
 ## Testing Expectations
 
 - Add or update tests when behavior changes materially and the surrounding area is testable.
 - Prefer focused tests over broad snapshot-style coverage.
 - Do not invent test infrastructure that the repo does not already use unless the user asks for it.
+- Do not add, generate, or modify any testing code unless the user explicitly asks for it.
 
 ## When Unsure
 

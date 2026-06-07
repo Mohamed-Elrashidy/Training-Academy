@@ -69,49 +69,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   Future<void> signupWithEmailAndPassword({
     required String email,
     required String password,
-    required String confirmPassword,
     required String firstName,
     required String lastName,
   }) async {
     final trimmedFirstName = firstName.trim();
     final trimmedLastName = lastName.trim();
     final trimmedEmail = email.trim();
-
-    if (trimmedFirstName.isEmpty) {
-      emit(
-        SignupFailureState(
-          ApiErrorModel(
-            message: 'First name is required.',
-            code: 'first-name-required',
-          ),
-        ),
-      );
-      return;
-    }
-
-    if (trimmedLastName.isEmpty) {
-      emit(
-        SignupFailureState(
-          ApiErrorModel(
-            message: 'Last name is required.',
-            code: 'last-name-required',
-          ),
-        ),
-      );
-      return;
-    }
-
-    if (password != confirmPassword) {
-      emit(
-        SignupFailureState(
-          ApiErrorModel(
-            message: 'Password and confirm password do not match.',
-            code: 'password-mismatch',
-          ),
-        ),
-      );
-      return;
-    }
 
     emit(SignupLoadingState());
     await CrashlyticsService.instance.log('Authentication: signup attempt started');

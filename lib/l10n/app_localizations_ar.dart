@@ -45,14 +45,52 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmPassword => 'تأكيد كلمة المرور';
 
   @override
+  String get emailRequiredValidation => 'البريد الإلكتروني مطلوب.';
+
+  @override
+  String get emailInvalidValidation => 'أدخل بريدًا إلكترونيًا صحيحًا.';
+
+  @override
+  String get passwordRequiredValidation => 'كلمة المرور مطلوبة.';
+
+  @override
+  String get passwordInvalidValidation => 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وأن تحتوي على حرف كبير وحرف صغير ورقم.';
+
+  @override
+  String get confirmPasswordRequiredValidation => 'تأكيد كلمة المرور مطلوب.';
+
+  @override
+  String get confirmPasswordMismatchValidation => 'كلمة المرور وتأكيد كلمة المرور غير متطابقتين.';
+
+  @override
+  String get firstNameRequiredValidation => 'الاسم الأول مطلوب.';
+
+  @override
+  String get lastNameRequiredValidation => 'اسم العائلة مطلوب.';
+
+  @override
+  String get passwordCriteriaMinimumLength => 'تتكون من 8 أحرف على الأقل';
+
+  @override
+  String get passwordCriteriaUppercase => 'تحتوي على حرف كبير';
+
+  @override
+  String get passwordCriteriaLowercase => 'تحتوي على حرف صغير';
+
+  @override
+  String get passwordCriteriaNumber => 'تحتوي على رقم';
+
+  @override
+  String get passwordCriteriaMatch => 'كلمتا المرور متطابقتان';
+
+  @override
   String get alreadyHaveAnAccount => 'هل لديك حساب بالفعل؟';
 
   @override
   String get emailAlreadyInUse => 'عنوان البريد الإلكتروني مستخدم بالفعل.';
 
   @override
-  String get invalidCredentials =>
-      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+  String get invalidCredentials => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
   @override
   String get accountInactive => 'حسابك غير نشط. يرجى الاتصال بالدعم.';

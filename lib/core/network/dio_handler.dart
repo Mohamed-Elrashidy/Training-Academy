@@ -97,6 +97,8 @@ class DioHandler {
     dynamic data,
     Map<String, dynamic>? headers,
   }) async {
+    print("base url: ${_dio.options.baseUrl} + ");
+    print("data for rpc: $data");
     return postRequest('rpc/$functionName', data: data, headers: headers);
   }
 

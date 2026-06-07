@@ -1,6 +1,8 @@
 create extension if not exists pgcrypto;
 
-create table if not exists public.credentials (
+drop table if exists public.credentials cascade;
+
+create table public.credentials (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default timezone('utc', now()),
   email text not null unique,
