@@ -1,3 +1,6 @@
+import 'package:training_acedamy/features/authentication/data/models/credential_model.dart';
+import 'package:training_acedamy/features/authentication/data/models/signup_result_model.dart';
+
 import 'package:training_acedamy/core/network/api_error_model.dart';
 
 class AuthenticationState {}
@@ -7,9 +10,9 @@ class AuthenticationInitialState extends AuthenticationState {}
 class LoginLoadingState extends AuthenticationState {}
 
 class LoginSuccessState extends AuthenticationState {
-  final dynamic data;
+  final CredentialModel credential;
 
-  LoginSuccessState(this.data);
+  LoginSuccessState(this.credential);
 }
 
 class LoginFailureState extends AuthenticationState {
@@ -21,9 +24,9 @@ class LoginFailureState extends AuthenticationState {
 class SignupLoadingState extends AuthenticationState {}
 
 class SignupSuccessState extends AuthenticationState {
-  final dynamic data;
+  final SignupResultModel signupResult;
 
-  SignupSuccessState(this.data);
+  SignupSuccessState(this.signupResult);
 }
 
 class SignupFailureState extends AuthenticationState {

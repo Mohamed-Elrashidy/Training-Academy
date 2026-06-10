@@ -9,12 +9,19 @@ import '../../data/models/credential_model.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationInitialState());
+
+  CredentialModel? _currentCredential;
+
+  CredentialModel? get currentCredential => _currentCredential;
+
   Future<void> loginWithEmailAndPassword({
     required String email,
     required String password,
   }) async {
     emit(LoginLoadingState());
-    await CrashlyticsService.instance.log('Authentication: login attempt started');
+    await CrashlyticsService.instance.log(
+      'Authentication: login attempt started',
+    );
     await CrashlyticsService.instance.setCustomKey(
       'auth_method',
       'email_password',
@@ -33,12 +40,13 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
         },
         ifRight: (credential) async {
           if (credential is CredentialModel) {
+            _currentCredential = credential;
             await _setCredentialCrashlyticsContext(credential);
+            emit(LoginSuccessState(credential));
           }
           await CrashlyticsService.instance.log(
             'Authentication: login completed successfully',
           );
-          emit(LoginSuccessState(credential));
         },
       );
     } catch (error, stackTrace) {
@@ -77,7 +85,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     final trimmedEmail = email.trim();
 
     emit(SignupLoadingState());
-    await CrashlyticsService.instance.log('Authentication: signup attempt started');
+    await CrashlyticsService.instance.log(
+      'Authentication: signup attempt started',
+    );
     await CrashlyticsService.instance.setCustomKey(
       'auth_method',
       'email_password',
@@ -99,6 +109,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
           emit(SignupFailureState(error));
         },
         ifRight: (signupResult) async {
+          _currentCredential = signupResult.credential;
           await _setCredentialCrashlyticsContext(signupResult.credential);
           await CrashlyticsService.instance.log(
             'Authentication: signup completed successfully',

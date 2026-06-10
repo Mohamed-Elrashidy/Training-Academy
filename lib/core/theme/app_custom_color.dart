@@ -2,6 +2,11 @@ import 'package:training_acedamy/core/theme/app_colors.dart';
 import 'package:training_acedamy/core/theme/custom_color_entity.dart';
 
 class AppCustomColor {
+  static CustomColorEntity get mainContainerColor => CustomColorEntity(
+    lightColor: AppColors.lightMainContainerColor,
+    darkColor: AppColors.darkMainContainerColor,
+  );
+
   static CustomColorEntity get scaffoldBackground => CustomColorEntity(
     lightColor: AppColors.lightScaffoldBackground,
     darkColor: AppColors.darkScaffoldBackground,

@@ -6,6 +6,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:training_acedamy/core/coordinator/app_coordinator.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';
 
 import 'core/routing/routing.dart';
@@ -16,17 +17,20 @@ GlobalKey<NavigatorState> appMainNavigatorKey = GlobalKey<NavigatorState>();
 
 class TrainingAcademyApp extends StatelessWidget {
   TrainingAcademyApp({super.key});
-  ThemeCubit themeCubit = ThemeCubit()..loadTheme();
+
   initState() {
     appMainNavigatorKey = GlobalKey<NavigatorState>();
   }
 
   @override
   Widget build(BuildContext context) {
+    final themeCubit = getIt<ThemeCubit>();
+    final authenticationCubit = getIt<AuthenticationCubit>();
+
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => themeCubit),
-        BlocProvider(create: (_) => AuthenticationCubit()),
+        BlocProvider.value(value: themeCubit),
+        BlocProvider.value(value: authenticationCubit),
       ],
       child: LayoutBuilder(
         builder: (_, __) => MaterialApp.router(

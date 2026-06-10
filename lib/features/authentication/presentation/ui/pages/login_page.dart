@@ -12,7 +12,6 @@ import 'package:training_acedamy/core/widgets/fields/custom_text_field.dart';
 import 'package:training_acedamy/core/widgets/loading/custom_loading_indicator.dart';
 import 'package:training_acedamy/core/widgets/media/banner_svg_handler.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
-import 'package:training_acedamy/features/authentication/data/models/credential_model.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_state.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
@@ -70,9 +69,8 @@ class _LoginPageState extends State<LoginPage> {
             );
           }
 
-          if (state is LoginSuccessState && state.data is CredentialModel) {
-            final credential = state.data as CredentialModel;
-            context.go(credential.userType.route);
+          if (state is LoginSuccessState) {
+            context.go(state.credential.userType.route);
           }
         },
         builder: (context, state) {

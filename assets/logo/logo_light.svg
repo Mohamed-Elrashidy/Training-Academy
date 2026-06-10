@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Training Academy logo light</title>
+  <desc id="desc">A rounded badge with a green graduation cap above an open book for the Training Academy app.</desc>
+  <defs>
+    <linearGradient id="accentLight" x1="176" y1="156" x2="344" y2="356" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#46E84A"/>
+      <stop offset="1" stop-color="#23D626"/>
+    </linearGradient>
+  </defs>
+  <path d="M256 136L166 186.5L256 237L346 186.5L256 136Z" fill="url(#accentLight)"/>
+  <path d="M178 201.5V229.5C178 247.4 213 261 256 261C299 261 334 247.4 334 229.5V201.5L256 246L178 201.5Z" fill="#0F172A"/>
+  <path d="M256 246L178 201.5V229.5C178 247.4 213 261 256 261V246Z" fill="#1E293B" opacity="0.55"/>
+  <circle cx="306" cy="205" r="9" fill="#FFFFFF"/>
+  <path d="M312 212.5V252" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round"/>
+  <path d="M165 292C165 276 178.4 263 195 263H317C333.6 263 347 276 347 292V329C347 346.1 333.1 360 316 360H196C178.9 360 165 346.1 165 329V292Z" fill="#0F172A"/>
+  <path d="M180 287H232C248 287 261 299.9 261 315.9V360H196C178.9 360 165 346.1 165 329V292C165 289.2 167.2 287 170 287H180Z" fill="#1E293B"/>
+  <path d="M332 287H280C264 287 251 299.9 251 315.9V360H316C333.1 360 347 346.1 347 329V292C347 289.2 344.8 287 342 287H332Z" fill="#111827"/>
+  <path d="M185 310H327" stroke="#46E84A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M196 338H316" stroke="#E2E8F0" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+</svg>

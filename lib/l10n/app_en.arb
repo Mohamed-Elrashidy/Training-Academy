@@ -34,7 +34,16 @@
   "invalidCredentials": "Invalid email or password.",
   "accountInactive": "Your account is inactive. Please contact support.",
   "errorTitle": "Error",
-  "ok": "OK"
+  "ok": "OK",
+  "home": "Home",
+  "settings": "Settings",
+  "profile": "Profile",
+  "messages": "Messages",
+  "news": "News",
+  "programs": "Programs",
+  "forms": "Forms",
+  "programsManagement": "Programs Management",
+  "logout": "Logout"
 
 
 }
