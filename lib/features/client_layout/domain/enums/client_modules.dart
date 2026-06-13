@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:training_acedamy/core/base_classes/modules/base_modules_enum.dart';
+import 'package:training_acedamy/features/settings/presentation/controller/settings_cubit.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
+
+import '../../../settings/presentation/ui/pages/settings_page_layout.dart';
 
 enum ClientModules implements BaseModulesEnum {
   home,
@@ -27,7 +31,10 @@ enum ClientModules implements BaseModulesEnum {
       case ClientModules.profile:
         return const Text('Profile');
       case ClientModules.settings:
-        return const Text('Settings');
+        return BlocProvider(
+          create: (context) => SettingsCubit(),
+          child: SettingsPageLayout(),
+        );
     }
   }
 

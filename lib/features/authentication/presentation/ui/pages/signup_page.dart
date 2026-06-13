@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:training_acedamy/core/helpers/dialog_helper.dart';
-import 'package:training_acedamy/core/helpers/form_validator.dart';
-import 'package:training_acedamy/core/widgets/check_box/custom_check_box.dart';
+import 'package:training_acedamy/core/helpers/dialogs/dialog_helper.dart';
+import 'package:training_acedamy/core/helpers/validators/form_validator.dart';
 import 'package:training_acedamy/core/theme/app_custom_color.dart';
+import 'package:training_acedamy/core/widgets/check_box/custom_check_box.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
 import 'package:training_acedamy/core/widgets/spacers/horizontal_spacer.dart';
 import 'package:training_acedamy/features/authentication/presentation/controllers/authentication_cubit.dart';

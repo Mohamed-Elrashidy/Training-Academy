@@ -9,10 +9,11 @@ class CustomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        GestureDetector(
-          onTap: () => context.pop(),
-          child: const Icon(Icons.arrow_back_ios_new_outlined),
-        ),
+        if (Navigator.canPop(context))
+          GestureDetector(
+            onTap: () => context.pop(),
+            child: const Icon(Icons.arrow_back_ios_new_outlined),
+          ),
         Expanded(
           child: Center(child: Text(title, style: AppTextStyles.heading2)),
         ),

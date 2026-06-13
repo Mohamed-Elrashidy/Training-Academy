@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:training_acedamy/core/coordinator/app_coordinator.dart';
+import 'package:training_acedamy/core/configurations/app_navigator_key.dart';
 import 'package:training_acedamy/core/routing/auth_routing.dart';
 import 'package:training_acedamy/core/routing/client_layout_routing.dart';
 import 'package:training_acedamy/core/routing/employee_layout_routing.dart';
@@ -11,6 +12,7 @@ import 'package:training_acedamy/features/authentication/presentation/controller
 
 class Routing {
   static final GoRouter router = GoRouter(
+    navigatorKey: appMainNavigatorKey,
     initialLocation: Routes.loginPage,
     observers: [CrashlyticsRouteObserver()],
     routes: <RouteBase>[

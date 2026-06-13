@@ -43,6 +43,10 @@
 "programs": "البرامج",
 "forms": "النماذج",
 "programsManagement" : "إدارة البرامج",
-"logout": "تسجيل الخروج"
+"logout": "تسجيل الخروج",
+"darkMode": "الوضع الداكن",
+"language": "اللغة",
+"notifications": "الإشعارات",
+"biometrics": "المصادقة البيومترية"
 
 }

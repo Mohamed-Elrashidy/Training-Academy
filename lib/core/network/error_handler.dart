@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:training_acedamy/core/configurations/app_navigator_key.dart';
 import 'package:training_acedamy/core/network/api_error_model.dart';
 import 'package:training_acedamy/core/network/data_source.dart';
-import 'package:training_acedamy/training_academy_app.dart';
 
 import '../../l10n/app_localizations.dart';
 

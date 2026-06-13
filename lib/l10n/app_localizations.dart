@@ -335,6 +335,12 @@ abstract class AppLocalizations {
   /// **'News'**
   String get news;
 
+  /// No description provided for @darkMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark Mode'**
+  String get darkMode;
+
   /// No description provided for @programs.
   ///
   /// In en, this message translates to:
@@ -358,6 +364,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @biometrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometrics'**
+  String get biometrics;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -7,15 +7,14 @@ PODS:
   - firebase_analytics (12.4.2):
     - firebase_core
     - FirebaseAnalytics (= 12.14.0)
-    - FlutterMacOS
+    - Flutter
   - firebase_core (4.10.0):
-    - Firebase/CoreOnly (~> 12.14.0)
-    - FlutterMacOS
+    - Firebase/CoreOnly (= 12.14.0)
+    - Flutter
   - firebase_crashlytics (5.2.3):
-    - Firebase/CoreOnly (~> 12.14.0)
-    - Firebase/Crashlytics (~> 12.14.0)
+    - Firebase/Crashlytics (= 12.14.0)
     - firebase_core
-    - FlutterMacOS
+    - Flutter
   - FirebaseAnalytics (12.14.0):
     - FirebaseAnalytics/Default (= 12.14.0)
     - FirebaseCore (~> 12.14.0)
@@ -66,7 +65,12 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 8.1)
     - nanopb (~> 3.30910.0)
     - PromisesSwift (~> 2.1)
-  - FlutterMacOS (1.0.0)
+  - Flutter (1.0.0)
+  - GoogleAdsOnDeviceConversion (3.6.0):
+    - GoogleUtilities/Environment (~> 8.1)
+    - GoogleUtilities/Logger (~> 8.1)
+    - GoogleUtilities/Network (~> 8.1)
+    - nanopb (~> 3.30910.0)
   - GoogleAppMeasurement/Core (12.14.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 8.1)
     - GoogleUtilities/MethodSwizzler (~> 8.1)
@@ -124,8 +128,8 @@ PODS:
     - nanopb/encode (= 3.30910.0)
   - nanopb/decode (3.30910.0)
   - nanopb/encode (3.30910.0)
-  - package_info_plus (0.0.1):
-    - FlutterMacOS
+  - package_info_plus (0.4.5):
+    - Flutter
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -134,12 +138,12 @@ PODS:
     - FlutterMacOS
 
 DEPENDENCIES:
-  - firebase_analytics (from `Flutter/ephemeral/.symlinks/plugins/firebase_analytics/macos`)
-  - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
-  - firebase_crashlytics (from `Flutter/ephemeral/.symlinks/plugins/firebase_crashlytics/macos`)
-  - FlutterMacOS (from `Flutter/ephemeral`)
-  - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
-  - shared_preferences_foundation (from `Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
+  - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+  - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
+  - Flutter (from `Flutter`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
 
 SPEC REPOS:
   trunk:
@@ -152,6 +156,7 @@ SPEC REPOS:
     - FirebaseInstallations
     - FirebaseRemoteConfigInterop
     - FirebaseSessions
+    - GoogleAdsOnDeviceConversion
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -161,23 +166,23 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   firebase_analytics:
-    :path: Flutter/ephemeral/.symlinks/plugins/firebase_analytics/macos
+    :path: ".symlinks/plugins/firebase_analytics/ios"
   firebase_core:
-    :path: Flutter/ephemeral/.symlinks/plugins/firebase_core/macos
+    :path: ".symlinks/plugins/firebase_core/ios"
   firebase_crashlytics:
-    :path: Flutter/ephemeral/.symlinks/plugins/firebase_crashlytics/macos
-  FlutterMacOS:
-    :path: Flutter/ephemeral
+    :path: ".symlinks/plugins/firebase_crashlytics/ios"
+  Flutter:
+    :path: Flutter
   package_info_plus:
-    :path: Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos
+    :path: ".symlinks/plugins/package_info_plus/ios"
   shared_preferences_foundation:
-    :path: Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
 
 SPEC CHECKSUMS:
   Firebase: 7cc10425300768ec86292688af5cb228f0604bde
-  firebase_analytics: ee3d3fba486e108ac43f00373e1ba21ef55f65a6
-  firebase_core: 6c25555337efe4f9288389c14373ddd107790d90
-  firebase_crashlytics: 4a4184b2a2a077be636a3e97b970f942b69ff387
+  firebase_analytics: 9ea6c22e60e1d37ee76772de57b4addddb03e276
+  firebase_core: 383e19b49a08df5d7a6cf5017616de6a357ed7af
+  firebase_crashlytics: 88273c8643a258ff74ee26203e319a782aa8b12c
   FirebaseAnalytics: 99364329a3ea4d1ab4a3744b5464371b7351c481
   FirebaseCore: 4939b340b9c598dc1f965d68f8fe57e630b65407
   FirebaseCoreExtension: ee3e3697acea1062288b1900bcdcab4d59ab93b4
@@ -186,16 +191,17 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 7cdc919e29dc54306edeffdbdc1eed1a40d7d1e7
   FirebaseRemoteConfigInterop: 40ecdce5a4feee7643b81342f32f1cded905bb07
   FirebaseSessions: c9e7b7829265454f08cb68f7f8a6650c9b221bd4
-  FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  GoogleAdsOnDeviceConversion: 80ce443fa1b4b5750913d53a04ecda644ff57744
   GoogleAppMeasurement: 1987ffa55055dfb22c52e363c31aa50c1e11d349
   GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  package_info_plus: f0052d280d17aa382b932f399edf32507174e870
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb
 
-PODFILE CHECKSUM: 54d867c82ac51cbd61b565781b9fada492027009
+PODFILE CHECKSUM: ce2a4dd764e1c7aeed6a7cdc5e61d092b6dc6d32
 
 COCOAPODS: 1.16.2

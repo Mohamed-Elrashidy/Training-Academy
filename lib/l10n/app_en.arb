@@ -40,10 +40,14 @@
   "profile": "Profile",
   "messages": "Messages",
   "news": "News",
+  "darkMode": "Dark Mode",
   "programs": "Programs",
   "forms": "Forms",
   "programsManagement": "Programs Management",
-  "logout": "Logout"
+  "logout": "Logout",
+  "language": "Language",
+  "notifications": "Notifications",
+  "biometrics": "Biometrics"
 
 
 }

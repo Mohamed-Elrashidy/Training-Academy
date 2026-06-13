@@ -129,6 +129,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get news => 'News';
 
   @override
+  String get darkMode => 'Dark Mode';
+
+  @override
   String get programs => 'Programs';
 
   @override
@@ -139,4 +142,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get biometrics => 'Biometrics';
 }

@@ -8,17 +8,17 @@ import 'package:training_acedamy/l10n/app_localizations.dart';
 
 import '../../theme/text_styles.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer<T extends BaseModulesEnum> extends StatelessWidget {
   const CustomDrawer({
     required this.modules,
     required this.selectedModule,
-
-    super.key,
     required this.onSelectModule,
+    super.key,
   });
-  final List<BaseModulesEnum> modules;
-  final BaseModulesEnum selectedModule;
-  final Null Function(BaseModulesEnum module) onSelectModule;
+
+  final List<T> modules;
+  final T selectedModule;
+  final ValueChanged<T> onSelectModule;
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +87,7 @@ class CustomDrawer extends StatelessWidget {
     );
   }
 
-  bool _isSelected(BaseModulesEnum module) {
+  bool _isSelected(T module) {
     return module == selectedModule;
   }
 }

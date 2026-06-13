@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../l10n/app_localizations.dart';
-import '../../../../training_academy_app.dart';
 
 enum EmployeeModules {
   home,
@@ -13,8 +12,7 @@ enum EmployeeModules {
   profile,
   settings;
 
-  String get title {
-    BuildContext context = appMainNavigatorKey.currentContext!;
+  String title(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
     switch (this) {

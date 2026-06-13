@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../training_academy_app.dart';
+import '../configurations/app_navigator_key.dart';
 
 class AppSizeCheckpointsManager {
   static const double smallPhoneMaxWidth = 320.0;
@@ -36,9 +36,6 @@ class AppSizeCheckpointsManager {
 
     // Try MediaQuery first (more reliable)
     try {
-      print(
-        "Getting width via MediaQuery ${MediaQuery.of(context).size.width}",
-      );
       return MediaQuery.of(context).size.width;
     } catch (e) {
       // Fallback to RenderBox size if MediaQuery not available
