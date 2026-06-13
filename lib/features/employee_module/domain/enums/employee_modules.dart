@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:training_acedamy/core/base_classes/modules/base_modules_enum.dart';
+import 'package:training_acedamy/features/settings/presentation/controller/settings_cubit.dart';
 
 import '../../../../l10n/app_localizations.dart';
+import '../../../settings/presentation/ui/pages/settings_page_layout.dart';
 
-enum EmployeeModules {
+enum EmployeeModules implements BaseModulesEnum {
   home,
   messages,
   programs,
@@ -12,6 +16,34 @@ enum EmployeeModules {
   profile,
   settings;
 
+  @override
+  Widget get widget {
+    switch (this) {
+      case EmployeeModules.home:
+        return _EmployeeModulePlaceholder(title: 'Employee Home');
+      case EmployeeModules.messages:
+        return _EmployeeModulePlaceholder(title: 'Employee Messages');
+      case EmployeeModules.programs:
+        return _EmployeeModulePlaceholder(title: 'Employee Programs');
+      case EmployeeModules.programsManagement:
+        return _EmployeeModulePlaceholder(
+          title: 'Programs Management',
+        );
+      case EmployeeModules.forms:
+        return _EmployeeModulePlaceholder(title: 'Employee Forms');
+      case EmployeeModules.news:
+        return _EmployeeModulePlaceholder(title: 'Employee News');
+      case EmployeeModules.profile:
+        return _EmployeeModulePlaceholder(title: 'Employee Profile');
+      case EmployeeModules.settings:
+        return BlocProvider(
+          create: (context) => SettingsCubit(),
+          child: SettingsPageLayout(),
+        );
+    }
+  }
+
+  @override
   String title(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
@@ -35,6 +67,7 @@ enum EmployeeModules {
     }
   }
 
+  @override
   IconData get icon {
     switch (this) {
       case EmployeeModules.home:
@@ -54,5 +87,22 @@ enum EmployeeModules {
       case EmployeeModules.settings:
         return Icons.settings_outlined;
     }
+  }
+}
+
+class _EmployeeModulePlaceholder extends StatelessWidget {
+  const _EmployeeModulePlaceholder({required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.titleLarge,
+        textAlign: TextAlign.center,
+      ),
+    );
   }
 }

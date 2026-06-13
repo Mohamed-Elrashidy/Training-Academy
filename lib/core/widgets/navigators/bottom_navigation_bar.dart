@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/extensions/extension.dart';
+import 'package:training_acedamy/core/base_classes/modules/base_modules_enum.dart';
 import 'package:training_acedamy/core/theme/app_custom_color.dart';
 import 'package:training_acedamy/core/theme/text_styles.dart';
 
-import '../../../features/client_layout/domain/enums/client_modules.dart';
-
-class CustomBottomNavigationBar extends StatelessWidget {
+class CustomBottomNavigationBar<T extends BaseModulesEnum>
+    extends StatelessWidget {
   const CustomBottomNavigationBar({
     required this.modules,
     required this.selectedModule,
@@ -13,9 +13,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
     super.key,
   });
 
-  final List<ClientModules> modules;
-  final ClientModules selectedModule;
-  final ValueChanged<ClientModules> onSelectModule;
+  final List<T> modules;
+  final T selectedModule;
+  final ValueChanged<T> onSelectModule;
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 
-  bool _isSelected(ClientModules module) {
+  bool _isSelected(T module) {
     return module == selectedModule;
   }
 }

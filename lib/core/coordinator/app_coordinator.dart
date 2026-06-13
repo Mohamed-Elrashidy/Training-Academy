@@ -5,6 +5,7 @@ import 'package:training_acedamy/features/client_account/data/repository/client_
 import 'package:training_acedamy/features/client_account/presentation/controllers/client_account_cubit.dart';
 import 'package:training_acedamy/features/employee_layout/data/repository/employee_account_repository.dart';
 import 'package:training_acedamy/features/employee_layout/presentation/controllers/employee_account_cubit.dart';
+import 'package:training_acedamy/features/employee_layout/presentation/controllers/employee_layout_cubit.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -44,6 +45,9 @@ abstract class AppCoordinator {
           repository: getIt<EmployeeAccountRepository>(),
         ),
       );
+    }
+    if (!getIt.isRegistered<EmployeeLayoutCubit>()) {
+      getIt.registerFactory<EmployeeLayoutCubit>(() => EmployeeLayoutCubit());
     }
   }
 }

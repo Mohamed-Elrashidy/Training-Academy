@@ -5,6 +5,7 @@ import 'package:training_acedamy/core/routing/routes.dart';
 
 import '../../features/authentication/presentation/controllers/authentication_cubit.dart';
 import '../../features/employee_layout/presentation/controllers/employee_account_cubit.dart';
+import '../../features/employee_layout/presentation/controllers/employee_layout_cubit.dart';
 import '../../features/employee_layout/presentation/ui/pages/employee_layout_page.dart';
 import '../coordinator/app_coordinator.dart';
 
@@ -13,13 +14,20 @@ class EmployeeLayoutRouting {
     return [
       ShellRoute(
         builder: (BuildContext context, GoRouterState state, Widget child) {
-          return BlocProvider<EmployeeAccountCubit>(
-            create: (_) => getIt<EmployeeAccountCubit>()
-              ..initializeAccount(
-                credential: context
-                    .read<AuthenticationCubit>()
-                    .currentCredential,
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider<EmployeeLayoutCubit>(
+                create: (_) => getIt<EmployeeLayoutCubit>(),
               ),
+              BlocProvider<EmployeeAccountCubit>(
+                create: (_) => getIt<EmployeeAccountCubit>()
+                  ..initializeAccount(
+                    credential: context
+                        .read<AuthenticationCubit>()
+                        .currentCredential,
+                  ),
+              ),
+            ],
             child: child,
           );
         },
