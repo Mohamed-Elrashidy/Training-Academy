@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/widgets/app_bars/custom_app_bar.dart';
+import 'package:training_acedamy/core/widgets/floating_action_buttons/custom_floating_action_button.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
 import 'package:training_acedamy/core/widgets/spacers/vertical_spacer.dart';
 import 'package:training_acedamy/features/program_management/presentation/ui/pages/program_management_overview_page.dart';
@@ -18,6 +19,10 @@ class ProgramManagementsLayout extends StatelessWidget {
           VerticalSpacer(height: 16),
           Expanded(child: ProgramManagementOverviewPage()),
         ],
+      ),
+      floatingActionButton: CustomFloatingActionButton(
+        onTap: () {},
+        icon: Icons.add,
       ),
     );
   }

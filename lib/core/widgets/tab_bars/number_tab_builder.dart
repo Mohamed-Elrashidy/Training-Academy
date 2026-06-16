@@ -19,19 +19,23 @@ class NumberTabBuilder<T> extends StatelessWidget {
   final T selectedValue;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: 32.sp,
-      children: [
-        for (T item in items)
-          GestureDetector(
-            onTap: () => onSelect(item),
-            child: NumberTabWidget(
-              title: getTitle(item),
-              number: getNumber(item),
-              isSelected: selectedValue == item,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        spacing: 32.sp,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          for (T item in items)
+            GestureDetector(
+              onTap: () => onSelect(item),
+              child: NumberTabWidget(
+                title: getTitle(item),
+                number: getNumber(item),
+                isSelected: selectedValue == item,
+              ),
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }

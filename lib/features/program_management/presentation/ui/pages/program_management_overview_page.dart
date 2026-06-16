@@ -18,6 +18,7 @@ class _ProgramManagementOverviewPageState
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           NumberTabBuilder<ProgramStatus>(
             getTitle: (ProgramStatus status) {
