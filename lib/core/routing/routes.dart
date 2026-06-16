@@ -13,4 +13,10 @@ class Routes {
   static const String employeeSettings = '/employee/settings';
   static const String addProgramPage = '/employee/program-management/add';
   static const String clientHome = '/client/home';
+  static const String clientMessages = '/client/messages';
+  static const String clientPrograms = '/client/programs';
+  static const String clientForms = '/client/forms';
+  static const String clientNews = '/client/news';
+  static const String clientProfile = '/client/profile';
+  static const String clientSettings = '/client/settings';
 }

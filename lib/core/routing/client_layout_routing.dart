@@ -7,6 +7,7 @@ import 'package:training_acedamy/features/authentication/presentation/controller
 import 'package:training_acedamy/features/client_account/presentation/controllers/client_account_cubit.dart';
 import 'package:training_acedamy/features/client_layout/presentation/ui/pages/client_layout_page.dart';
 
+import '../../features/client_layout/domain/enums/client_modules.dart';
 import '../../features/client_layout/presentation/controllers/client_layout_cubit.dart';
 
 class ClientLayoutRouter {
@@ -26,8 +27,10 @@ class ClientLayoutRouter {
                   ),
               ),
             ],
-
-            child: child,
+            child: ClientLayoutPage(
+              location: state.matchedLocation,
+              child: child,
+            ),
           );
         },
         routes: [
@@ -35,7 +38,49 @@ class ClientLayoutRouter {
             name: Routes.clientHome,
             path: Routes.clientHome,
             builder: (BuildContext context, GoRouterState state) {
-              return const ClientLayoutPage();
+              return ClientModules.home.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientMessages,
+            path: Routes.clientMessages,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.messages.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientPrograms,
+            path: Routes.clientPrograms,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.programs.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientForms,
+            path: Routes.clientForms,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.forms.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientNews,
+            path: Routes.clientNews,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.news.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientProfile,
+            path: Routes.clientProfile,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.profile.widget;
+            },
+          ),
+          GoRoute(
+            name: Routes.clientSettings,
+            path: Routes.clientSettings,
+            builder: (BuildContext context, GoRouterState state) {
+              return ClientModules.settings.widget;
             },
           ),
         ],
