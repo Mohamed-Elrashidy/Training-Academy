@@ -81,6 +81,42 @@ Use only the folders the feature actually needs. Do not create empty layers just
 - Shared network, theme, routing, extensions, helpers, and reusable widgets belong in `lib/core`.
 - If logic is feature-specific, keep it inside the feature instead of moving it to `core` too early.
 
+## Core Widget Usage
+
+Prefer the shared widget layer in `lib/core/widgets/` before introducing a new UI primitive in a feature.
+
+- `CustomScaffold`: use for screen-level pages that need the app background, safe area, padding, and optional floating action button.
+- `CustomAppBar`: use for simple page headers with a centered title and optional back navigation.
+- `CustomFloatingActionButton`: use for any floating or primary action button shown on a screen.
+- `CustomTextButton`: use for reusable primary action buttons, especially inside dialogs and compact form actions.
+- `CustomDialog`: use for standard confirmation, alert, and information dialogs with optional submit/cancel actions.
+- `CustomLoadingIndicator`: use for loading overlays and in-flight loading states.
+- `BannerSvgHandler`: use for banner, hero, or header SVG assets that should scale responsively.
+- `CustomSwitch`: use for all toggle rows and settings switches.
+- `CustomCheckBox`: use for custom checkbox visuals when the native checkbox needs a shared style.
+- `HorizontalDivider`: use for thin full-width separators between sections or items.
+- `HorizontalSpacer` and `VerticalSpacer`: use for layout gaps instead of raw `SizedBox` in feature UI.
+- `CustomFormField`, `CustomTextField`, and `CustomTextFieldWithTitle`: use for form inputs and titled input blocks.
+- `CustomBottomNavigationBar`: use for module-based bottom navigation surfaces.
+- `CustomDrawer`: use for module-based side navigation surfaces.
+- `NumberTabBuilder`: use for numbered tab, card, or status selectors where the selected item is rendered with a count and label.
+- `CustomGridViewBuilder`: use for responsive item layouts where the number of items per row should adapt to screen width.
+
+Preference rules:
+
+- Prefer `CustomFloatingActionButton` over raw `FloatingActionButton`.
+- Prefer `NumberTabBuilder` for any numbered tab or status card selector.
+- Prefer `CustomSwitch` for any switch or toggle control.
+- Prefer spacer widgets for layout gaps instead of scattered `SizedBox` usage.
+- Prefer `CustomScaffold` for any page scaffold unless the screen truly needs a different structure.
+- Prefer `CustomLoadingIndicator` for loading states.
+- Prefer `BannerSvgHandler` for SVG banners and hero art.
+- Prefer `CustomGridViewBuilder` over `GridView.builder` when rendering a small-to-medium responsive grid of cards or items and the row/column count should change with screen width.
+
+Exception:
+
+- Use raw Flutter primitives only when the shared widget does not fit the UX requirement, such as when virtualization, advanced scrolling behavior, or a highly custom layout is required.
+
 ## Naming Conventions
 
 - File names: `snake_case.dart`
