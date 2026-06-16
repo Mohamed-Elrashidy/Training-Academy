@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:training_acedamy/core/widgets/app_bars/custom_app_bar.dart';
 import 'package:training_acedamy/core/widgets/floating_action_buttons/custom_floating_action_button.dart';
 import 'package:training_acedamy/core/widgets/scaffolds/custom_scaffold.dart';
 import 'package:training_acedamy/core/widgets/spacers/vertical_spacer.dart';
+import 'package:training_acedamy/core/routing/routes.dart';
 import 'package:training_acedamy/features/program_management/presentation/ui/pages/program_management_overview_page.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
 
@@ -21,7 +23,7 @@ class ProgramManagementsLayout extends StatelessWidget {
         ],
       ),
       floatingActionButton: CustomFloatingActionButton(
-        onTap: () {},
+        onTap: () => context.push(Routes.addProgramPage),
         icon: Icons.add,
       ),
     );
