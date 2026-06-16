@@ -4,7 +4,7 @@ import 'package:training_acedamy/core/base_classes/modules/base_modules_enum.dar
 import 'package:training_acedamy/features/settings/presentation/controller/settings_cubit.dart';
 
 import '../../../../l10n/app_localizations.dart';
-import '../../../program_management/presentation/ui/pages/program_management_route_gate_page.dart';
+import '../../../program_management/presentation/ui/pages/program_managements_layout.dart';
 import '../../../settings/presentation/ui/pages/settings_page_layout.dart';
 
 enum EmployeeModules implements BaseModulesEnum {
@@ -27,7 +27,7 @@ enum EmployeeModules implements BaseModulesEnum {
       case EmployeeModules.programs:
         return _EmployeeModulePlaceholder(title: 'Employee Programs');
       case EmployeeModules.programsManagement:
-        return const ProgramManagementRouteGatePage();
+        return const ProgramManagementsLayout();
       case EmployeeModules.forms:
         return _EmployeeModulePlaceholder(title: 'Employee Forms');
       case EmployeeModules.news:

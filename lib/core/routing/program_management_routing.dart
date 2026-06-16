@@ -18,18 +18,20 @@ class ProgramManagementRouter {
         },
         routes: [
           GoRoute(
-            name: Routes.programManagementPage,
-            path: Routes.programManagementPage,
+            name: Routes.employeeProgramManagement,
+            path: Routes.employeeProgramManagement,
             builder: (BuildContext context, GoRouterState state) {
               return const ProgramManagementsLayout();
             },
-          ),
-          GoRoute(
-            name: Routes.addProgramPage,
-            path: Routes.addProgramPage,
-            builder: (BuildContext context, GoRouterState state) {
-              return const AddProgramPage();
-            },
+            routes: [
+              GoRoute(
+                name: Routes.addProgramPage,
+                path: 'add',
+                builder: (BuildContext context, GoRouterState state) {
+                  return const AddProgramPage();
+                },
+              ),
+            ],
           ),
         ],
       ),
