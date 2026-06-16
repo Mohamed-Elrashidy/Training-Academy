@@ -44,10 +44,29 @@
   "programs": "Programs",
   "forms": "Forms",
   "programsManagement": "Programs Management",
+  "conditions": "Conditions",
+  "countries": "Countries",
+  "cities": "Cities",
+  "usage": "Usage",
+  "chooseCountries": "Choose Countries",
+  "chooseCities": "Choose Cities",
+  "useIn": "Use In",
+  "services": "Services",
+  "products": "Products",
+  "any": "Any",
   "logout": "Logout",
   "language": "Language",
   "notifications": "Notifications",
-  "biometrics": "Biometrics"
-
-
+  "biometrics": "Biometrics",
+  "beginner": "Beginner",
+  "intermediate": "Intermediate",
+  "advanced": "Advanced",
+  "elite": "Elite",
+  "level": "Level",
+  "general": "General",
+  "customized": "Customized",
+  "active": "Active",
+  "inactive": "Inactive",
+  "removed": "Removed",
+  "all": "All"
 }

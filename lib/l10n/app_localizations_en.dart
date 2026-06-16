@@ -141,6 +141,36 @@ class AppLocalizationsEn extends AppLocalizations {
   String get programsManagement => 'Programs Management';
 
   @override
+  String get conditions => 'Conditions';
+
+  @override
+  String get countries => 'Countries';
+
+  @override
+  String get cities => 'Cities';
+
+  @override
+  String get usage => 'Usage';
+
+  @override
+  String get chooseCountries => 'Choose Countries';
+
+  @override
+  String get chooseCities => 'Choose Cities';
+
+  @override
+  String get useIn => 'Use In';
+
+  @override
+  String get services => 'Services';
+
+  @override
+  String get products => 'Products';
+
+  @override
+  String get any => 'Any';
+
+  @override
   String get logout => 'Logout';
 
   @override
@@ -151,4 +181,37 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get biometrics => 'Biometrics';
+
+  @override
+  String get beginner => 'Beginner';
+
+  @override
+  String get intermediate => 'Intermediate';
+
+  @override
+  String get advanced => 'Advanced';
+
+  @override
+  String get elite => 'Elite';
+
+  @override
+  String get level => 'Level';
+
+  @override
+  String get general => 'General';
+
+  @override
+  String get customized => 'Customized';
+
+  @override
+  String get active => 'Active';
+
+  @override
+  String get inactive => 'Inactive';
+
+  @override
+  String get removed => 'Removed';
+
+  @override
+  String get all => 'All';
 }

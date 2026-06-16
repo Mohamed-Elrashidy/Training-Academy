@@ -10,7 +10,7 @@ class EmployeeLayoutCubit extends Cubit<EmployeeLayoutState> {
     EmployeeModules.home,
     EmployeeModules.messages,
     EmployeeModules.programs,
-    EmployeeModules.forms,
+    EmployeeModules.programsManagement,
     EmployeeModules.settings,
   ];
 

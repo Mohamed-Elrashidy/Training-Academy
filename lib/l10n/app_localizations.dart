@@ -359,6 +359,66 @@ abstract class AppLocalizations {
   /// **'Programs Management'**
   String get programsManagement;
 
+  /// No description provided for @conditions.
+  ///
+  /// In en, this message translates to:
+  /// **'Conditions'**
+  String get conditions;
+
+  /// No description provided for @countries.
+  ///
+  /// In en, this message translates to:
+  /// **'Countries'**
+  String get countries;
+
+  /// No description provided for @cities.
+  ///
+  /// In en, this message translates to:
+  /// **'Cities'**
+  String get cities;
+
+  /// No description provided for @usage.
+  ///
+  /// In en, this message translates to:
+  /// **'Usage'**
+  String get usage;
+
+  /// No description provided for @chooseCountries.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Countries'**
+  String get chooseCountries;
+
+  /// No description provided for @chooseCities.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Cities'**
+  String get chooseCities;
+
+  /// No description provided for @useIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Use In'**
+  String get useIn;
+
+  /// No description provided for @services.
+  ///
+  /// In en, this message translates to:
+  /// **'Services'**
+  String get services;
+
+  /// No description provided for @products.
+  ///
+  /// In en, this message translates to:
+  /// **'Products'**
+  String get products;
+
+  /// No description provided for @any.
+  ///
+  /// In en, this message translates to:
+  /// **'Any'**
+  String get any;
+
   /// No description provided for @logout.
   ///
   /// In en, this message translates to:
@@ -382,6 +442,72 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Biometrics'**
   String get biometrics;
+
+  /// No description provided for @beginner.
+  ///
+  /// In en, this message translates to:
+  /// **'Beginner'**
+  String get beginner;
+
+  /// No description provided for @intermediate.
+  ///
+  /// In en, this message translates to:
+  /// **'Intermediate'**
+  String get intermediate;
+
+  /// No description provided for @advanced.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced'**
+  String get advanced;
+
+  /// No description provided for @elite.
+  ///
+  /// In en, this message translates to:
+  /// **'Elite'**
+  String get elite;
+
+  /// No description provided for @level.
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get level;
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @customized.
+  ///
+  /// In en, this message translates to:
+  /// **'Customized'**
+  String get customized;
+
+  /// No description provided for @active.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get active;
+
+  /// No description provided for @inactive.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive'**
+  String get inactive;
+
+  /// No description provided for @removed.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed'**
+  String get removed;
+
+  /// No description provided for @all.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get all;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

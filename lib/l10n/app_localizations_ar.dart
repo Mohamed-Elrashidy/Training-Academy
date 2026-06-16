@@ -141,6 +141,36 @@ class AppLocalizationsAr extends AppLocalizations {
   String get programsManagement => 'إدارة البرامج';
 
   @override
+  String get conditions => 'الشروط';
+
+  @override
+  String get countries => 'الدول';
+
+  @override
+  String get cities => 'المدن';
+
+  @override
+  String get usage => 'الاستخدام';
+
+  @override
+  String get chooseCountries => 'اختر الدول';
+
+  @override
+  String get chooseCities => 'اختر المدن';
+
+  @override
+  String get useIn => 'يُستخدم في';
+
+  @override
+  String get services => 'الخدمات';
+
+  @override
+  String get products => 'المنتجات';
+
+  @override
+  String get any => 'الكل';
+
+  @override
   String get logout => 'تسجيل الخروج';
 
   @override
@@ -151,4 +181,37 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get biometrics => 'المصادقة البيومترية';
+
+  @override
+  String get beginner => 'مبتدئ';
+
+  @override
+  String get intermediate => 'متوسط';
+
+  @override
+  String get advanced => 'متقدم';
+
+  @override
+  String get elite => 'نخبة';
+
+  @override
+  String get level => 'المستوى';
+
+  @override
+  String get general => 'عام';
+
+  @override
+  String get customized => 'مخصص';
+
+  @override
+  String get active => 'نشط';
+
+  @override
+  String get inactive => 'غير نشط';
+
+  @override
+  String get removed => 'محذوف';
+
+  @override
+  String get all => 'الكل';
 }

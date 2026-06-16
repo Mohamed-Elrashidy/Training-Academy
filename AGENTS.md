@@ -129,6 +129,31 @@ Additional rules:
 - Keep routing setup in the routing layer, not in feature widgets.
 - Route decisions based on account/user type should come from shared enums or centralized logic.
 
+## Core Enum Patterns
+
+- Enums under `lib/core/enums/programs/` are built as lightweight domain enums with getters, not helper classes.
+- When adding any new enum under `lib/core/enums/`, follow the same pattern unless the user explicitly asks for a different structure:
+  - use `appMainNavigatorKey.currentContext!` to resolve `AppLocalizations`
+  - expose a `disPlayName` getter that reads localized UI text from the app navigator context
+  - expose a `databaseName` getter for backend payload values
+- Keep the enum values and their `switch` mappings in sync so the UI label and database value always match the same case.
+- Prefer this enum shape for future core enums instead of introducing custom enum wrappers or inconsistent access patterns.
+
+## Theme Controls
+
+- Theme and language controls should use the shared `ThemeCubit` state as the source of truth.
+- UI settings widgets should read `ThemeCubit.isDarkMode` and `ThemeCubit.isEnglish` through the `SettingsCubit`, then call the cubit toggle methods directly from switch callbacks.
+- Do not keep a second local theme state inside dialogs or settings widgets when the existing theme flow already persists and broadcasts the current app mode.
+- For app-wide dialogs or controls that need localized labels, resolve strings from the active `BuildContext` and respect the current theme colors from `core/theme`.
+
+## Theme Usage
+
+- When building or modifying any UI, use the `lib/core/theme/` helpers directly before introducing new colors, text styles, or light/dark conditionals.
+- Prefer `AppCustomColor` for theme-aware colors, `AppTextStyles` for typography, and `SvgImageModel` for light/dark image switching.
+- Use `AppColors` only for the base palette or when adding a new shared token that should be wrapped by `AppCustomColor`.
+- Avoid hardcoding raw color values or duplicate style definitions in feature widgets when an equivalent theme helper already exists.
+- Keep responsive sizing aligned with `AppSizeCheckpointsManager` and the shared `sp` extension pattern already used in the theme layer.
+
 ## Localization Rules
 
 - User-facing strings should go through localization when the surrounding feature already supports it.
