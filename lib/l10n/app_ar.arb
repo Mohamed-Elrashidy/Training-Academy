@@ -68,5 +68,22 @@
 "active": "نشط",
 "inactive": "غير نشط",
 "removed": "محذوف",
-"all": "الكل"
+"all": "الكل",
+"football": "كرة القدم",
+"basketball": "كرة السلة",
+"volleyball": "كرة الطائرة",
+"handball": "كرة اليد",
+"swimming": "السباحة",
+"tennis": "التنس",
+"athletics": "ألعاب القوى",
+"martialArts": "الفنون القتالية",
+"fitness": "اللياقة البدنية",
+"crossFit": "كروس فيت",
+"strength": "القوة",
+"minutes": "دقائق",
+"hours": "ساعات",
+"months": "أشهر",
+"years": "سنوات",
+"onsite": "في الموقع",
+"offline": "عن بعد"
 }

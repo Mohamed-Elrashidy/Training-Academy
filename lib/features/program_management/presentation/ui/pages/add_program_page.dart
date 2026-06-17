@@ -14,7 +14,7 @@ class AddProgramPage extends StatelessWidget {
         children: const [
           VerticalSpacer(height: 8),
           CustomAppBar(title: 'Add Program'),
-          Expanded(child: SizedBox.shrink()),
+          Expanded(child: SingleChildScrollView(child: Column())),
         ],
       ),
     );

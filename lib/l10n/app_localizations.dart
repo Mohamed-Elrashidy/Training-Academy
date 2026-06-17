@@ -508,6 +508,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All'**
   String get all;
+
+  /// No description provided for @football.
+  ///
+  /// In en, this message translates to:
+  /// **'Football'**
+  String get football;
+
+  /// No description provided for @basketball.
+  ///
+  /// In en, this message translates to:
+  /// **'Basketball'**
+  String get basketball;
+
+  /// No description provided for @volleyball.
+  ///
+  /// In en, this message translates to:
+  /// **'Volleyball'**
+  String get volleyball;
+
+  /// No description provided for @handball.
+  ///
+  /// In en, this message translates to:
+  /// **'Handball'**
+  String get handball;
+
+  /// No description provided for @swimming.
+  ///
+  /// In en, this message translates to:
+  /// **'Swimming'**
+  String get swimming;
+
+  /// No description provided for @tennis.
+  ///
+  /// In en, this message translates to:
+  /// **'Tennis'**
+  String get tennis;
+
+  /// No description provided for @athletics.
+  ///
+  /// In en, this message translates to:
+  /// **'Athletics'**
+  String get athletics;
+
+  /// No description provided for @martialArts.
+  ///
+  /// In en, this message translates to:
+  /// **'Martial Arts'**
+  String get martialArts;
+
+  /// No description provided for @fitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness'**
+  String get fitness;
+
+  /// No description provided for @crossFit.
+  ///
+  /// In en, this message translates to:
+  /// **'CrossFit'**
+  String get crossFit;
+
+  /// No description provided for @strength.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get strength;
+
+  /// No description provided for @minutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get minutes;
+
+  /// No description provided for @hours.
+  ///
+  /// In en, this message translates to:
+  /// **'Hours'**
+  String get hours;
+
+  /// No description provided for @months.
+  ///
+  /// In en, this message translates to:
+  /// **'Months'**
+  String get months;
+
+  /// No description provided for @years.
+  ///
+  /// In en, this message translates to:
+  /// **'Years'**
+  String get years;
+
+  /// No description provided for @onsite.
+  ///
+  /// In en, this message translates to:
+  /// **'Onsite'**
+  String get onsite;
+
+  /// No description provided for @offline.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline'**
+  String get offline;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

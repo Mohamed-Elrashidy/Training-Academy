@@ -214,4 +214,55 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get all => 'All';
+
+  @override
+  String get football => 'Football';
+
+  @override
+  String get basketball => 'Basketball';
+
+  @override
+  String get volleyball => 'Volleyball';
+
+  @override
+  String get handball => 'Handball';
+
+  @override
+  String get swimming => 'Swimming';
+
+  @override
+  String get tennis => 'Tennis';
+
+  @override
+  String get athletics => 'Athletics';
+
+  @override
+  String get martialArts => 'Martial Arts';
+
+  @override
+  String get fitness => 'Fitness';
+
+  @override
+  String get crossFit => 'CrossFit';
+
+  @override
+  String get strength => 'Strength';
+
+  @override
+  String get minutes => 'Minutes';
+
+  @override
+  String get hours => 'Hours';
+
+  @override
+  String get months => 'Months';
+
+  @override
+  String get years => 'Years';
+
+  @override
+  String get onsite => 'Onsite';
+
+  @override
+  String get offline => 'Offline';
 }

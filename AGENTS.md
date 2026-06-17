@@ -175,6 +175,18 @@ Additional rules:
 - Keep the enum values and their `switch` mappings in sync so the UI label and database value always match the same case.
 - Prefer this enum shape for future core enums instead of introducing custom enum wrappers or inconsistent access patterns.
 
+## Program Entity Pattern
+
+- Program entities should keep raw bilingual fields on the model instead of pushing locale selection into the cubit.
+- Use `english*` fields as the primary stored values and add matching `arabic*` fields for localized content.
+- For string list content such as prerequisites and learning outcomes, keep `english*` and `arabic*` list fields side by side.
+- Add locale-aware getters on the entity itself for the current app language:
+  - read the active locale through `appMainNavigatorKey.currentContext!`
+  - resolve `AppLocalizations`
+  - return the Arabic value when the current locale is Arabic, otherwise return the English value
+- Keep localized selection logic inside the entity when the data is fundamentally bilingual and feature-specific.
+- Do not duplicate locale branching in the cubit if the entity already exposes the localized getter.
+
 ## Theme Controls
 
 - Theme and language controls should use the shared `ThemeCubit` state as the source of truth.

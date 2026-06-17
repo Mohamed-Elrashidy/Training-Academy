@@ -214,4 +214,55 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get all => 'الكل';
+
+  @override
+  String get football => 'كرة القدم';
+
+  @override
+  String get basketball => 'كرة السلة';
+
+  @override
+  String get volleyball => 'كرة الطائرة';
+
+  @override
+  String get handball => 'كرة اليد';
+
+  @override
+  String get swimming => 'السباحة';
+
+  @override
+  String get tennis => 'التنس';
+
+  @override
+  String get athletics => 'ألعاب القوى';
+
+  @override
+  String get martialArts => 'الفنون القتالية';
+
+  @override
+  String get fitness => 'اللياقة البدنية';
+
+  @override
+  String get crossFit => 'كروس فيت';
+
+  @override
+  String get strength => 'القوة';
+
+  @override
+  String get minutes => 'دقائق';
+
+  @override
+  String get hours => 'ساعات';
+
+  @override
+  String get months => 'أشهر';
+
+  @override
+  String get years => 'سنوات';
+
+  @override
+  String get onsite => 'في الموقع';
+
+  @override
+  String get offline => 'عن بعد';
 }

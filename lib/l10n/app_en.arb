@@ -68,5 +68,22 @@
   "active": "Active",
   "inactive": "Inactive",
   "removed": "Removed",
-  "all": "All"
+  "all": "All",
+  "football": "Football",
+  "basketball": "Basketball",
+  "volleyball": "Volleyball",
+  "handball": "Handball",
+  "swimming": "Swimming",
+  "tennis": "Tennis",
+  "athletics": "Athletics",
+  "martialArts": "Martial Arts",
+  "fitness": "Fitness",
+  "crossFit": "CrossFit",
+  "strength": "Strength",
+  "minutes": "Minutes",
+  "hours": "Hours",
+  "months": "Months",
+  "years": "Years",
+  "onsite": "Onsite",
+  "offline": "Offline"
 }
