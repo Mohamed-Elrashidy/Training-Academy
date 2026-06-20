@@ -14,6 +14,7 @@ class CustomTextField extends StatefulWidget {
   const CustomTextField({
     this.isReadOnly = false,
     this.isPassword = false,
+    this.maxLines = 1,
     required this.controller,
     this.hintText,
     this.validator,
@@ -23,6 +24,7 @@ class CustomTextField extends StatefulWidget {
 
   final bool isReadOnly;
   final bool isPassword;
+  final int maxLines;
   final TextEditingController controller;
   final String? hintText;
   final String? Function(String?)? validator;
@@ -76,6 +78,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
           controller: widget.controller,
           readOnly: widget.isReadOnly,
           obscureText: widget.isPassword ? _isObscured : false,
+          maxLines: widget.maxLines,
+          keyboardType: widget.maxLines > 1
+              ? TextInputType.multiline
+              : TextInputType.text,
+          textAlignVertical: widget.maxLines > 1
+              ? TextAlignVertical.top
+              : TextAlignVertical.center,
           onChanged: field.didChange,
           onTapOutside: (event) {
             FocusManager.instance.primaryFocus?.unfocus();

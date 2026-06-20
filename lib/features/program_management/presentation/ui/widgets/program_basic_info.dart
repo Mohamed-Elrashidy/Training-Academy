@@ -66,6 +66,15 @@ class _ProgramBasicInfoState extends State<ProgramBasicInfo> {
             arabicTitle: "العنوان",
             englishTitle: "Title",
           ),
+          LocalizeTextFields(
+            isDescription: true,
+            arabicTextController: arabicDescriptionController,
+            englishTextController: englishDescriptionController,
+            arabicHint: "الوصف",
+            englishHint: "Description",
+            arabicTitle: "الوصف",
+            englishTitle: "Description",
+          ),
         ],
       ),
     );

@@ -12,6 +12,7 @@ class LocalizeTextFields extends StatelessWidget {
     required this.englishHint,
     required this.arabicTitle,
     required this.englishTitle,
+    this.isDescription = false,
     this.arabicValidator,
     this.englishValidator,
     super.key,
@@ -23,18 +24,23 @@ class LocalizeTextFields extends StatelessWidget {
   final String englishHint;
   final String arabicTitle;
   final String englishTitle;
+  final bool isDescription;
   final String? Function(String?)? arabicValidator;
   final String? Function(String?)? englishValidator;
 
   @override
   Widget build(BuildContext context) {
+    final fields = ThemeCubit.isEnglish
+        ? buildFields()
+        : buildFields().reversed.toList();
+
     return CustomGridViewBuilder(
-      numberOfRows: context.responsive.isMobile ? 2 : 1,
-      widgets: ThemeCubit.isEnglish ? fields() : fields().reversed.toList(),
+      numberOfRows: context.responsive.isMobile || isDescription ? 2 : 1,
+      widgets: fields,
     );
   }
 
-  List<Widget> fields() {
+  List<Widget> buildFields() {
     return [
       Directionality(
         textDirection: TextDirection.ltr,
@@ -43,6 +49,7 @@ class LocalizeTextFields extends StatelessWidget {
           controller: englishTextController,
           hint: englishHint,
           validator: englishValidator,
+          maxLines: isDescription ? 5 : 1,
         ),
       ),
       Directionality(
@@ -52,6 +59,7 @@ class LocalizeTextFields extends StatelessWidget {
           controller: arabicTextController,
           hint: arabicHint,
           validator: arabicValidator,
+          maxLines: isDescription ? 5 : 1,
         ),
       ),
     ];
