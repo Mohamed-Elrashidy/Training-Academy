@@ -1,10 +1,11 @@
 import 'package:training_acedamy/core/configurations/app_navigator_key.dart';
-import 'package:training_acedamy/core/currency/currency_enum.dart';
 import 'package:training_acedamy/core/enums/programs/duration_unit.dart';
 import 'package:training_acedamy/core/enums/programs/program_category.dart';
 import 'package:training_acedamy/core/enums/programs/program_status.dart';
 import 'package:training_acedamy/core/enums/programs/program_type.dart';
 import 'package:training_acedamy/l10n/app_localizations.dart';
+
+import '../../../../core/enums/currency/currency_enum.dart';
 
 class ProgramEntity {
   String? programId;
@@ -85,4 +86,8 @@ class ProgramEntity {
 
   List<String>? get localizedLearningOutcomes =>
       isArabicLocale ? arabicLearningOutcomes : englishLearningOutcomes;
+
+  static ProgramEntity newEmptyInstance() {
+    return ProgramEntity();
+  }
 }

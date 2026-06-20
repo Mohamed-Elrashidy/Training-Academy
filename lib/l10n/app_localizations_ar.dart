@@ -265,4 +265,28 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get offline => 'عن بعد';
+
+  @override
+  String get payInApp => 'الدفع داخل التطبيق';
+
+  @override
+  String get egyptianPound => 'الجنيه المصري';
+
+  @override
+  String get usDollar => 'الدولار الأمريكي';
+
+  @override
+  String get euroCurrency => 'اليورو';
+
+  @override
+  String get britishPound => 'الجنيه الإسترليني';
+
+  @override
+  String get saudiRiyal => 'الريال السعودي';
+
+  @override
+  String get basicInfo => 'المعلومات الأساسية';
+
+  @override
+  String get addProgram => 'إضافة برنامج';
 }

@@ -15,12 +15,16 @@ class CustomTextFieldWithTitle extends StatelessWidget {
   const CustomTextFieldWithTitle({
     required this.title,
     required this.controller,
+    this.validator,
+    this.hint = '',
     this.isExpanded = false,
     super.key,
   });
   final String title;
   final TextEditingController controller;
+  final String? Function(String?)? validator;
   final bool isExpanded;
+  final String hint;
 
   /// Function Name: build
   ///
@@ -38,7 +42,11 @@ class CustomTextFieldWithTitle extends StatelessWidget {
       children: [
         Text(title, style: AppTextStyles.body),
         VerticalSpacer(height: 8),
-        CustomTextField(controller: controller),
+        CustomTextField(
+          controller: controller,
+          hintText: hint,
+          validator: validator,
+        ),
       ],
     );
 

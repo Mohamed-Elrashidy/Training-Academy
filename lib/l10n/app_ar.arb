@@ -82,8 +82,16 @@
 "strength": "القوة",
 "minutes": "دقائق",
 "hours": "ساعات",
-"months": "أشهر",
-"years": "سنوات",
-"onsite": "في الموقع",
-"offline": "عن بعد"
+  "months": "أشهر",
+  "years": "سنوات",
+  "onsite": "في الموقع",
+  "offline": "عن بعد",
+  "payInApp": "الدفع داخل التطبيق",
+  "egyptianPound": "الجنيه المصري",
+  "usDollar": "الدولار الأمريكي",
+  "euroCurrency": "اليورو",
+  "britishPound": "الجنيه الإسترليني",
+  "saudiRiyal": "الريال السعودي",
+  "basicInfo": "المعلومات الأساسية",
+  "addProgram":   "إضافة برنامج"
 }

@@ -610,6 +610,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Offline'**
   String get offline;
+
+  /// No description provided for @payInApp.
+  ///
+  /// In en, this message translates to:
+  /// **'Pay in App'**
+  String get payInApp;
+
+  /// No description provided for @egyptianPound.
+  ///
+  /// In en, this message translates to:
+  /// **'Egyptian Pound'**
+  String get egyptianPound;
+
+  /// No description provided for @usDollar.
+  ///
+  /// In en, this message translates to:
+  /// **'US Dollar'**
+  String get usDollar;
+
+  /// No description provided for @euroCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Euro'**
+  String get euroCurrency;
+
+  /// No description provided for @britishPound.
+  ///
+  /// In en, this message translates to:
+  /// **'British Pound'**
+  String get britishPound;
+
+  /// No description provided for @saudiRiyal.
+  ///
+  /// In en, this message translates to:
+  /// **'Saudi Riyal'**
+  String get saudiRiyal;
+
+  /// No description provided for @basicInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Info'**
+  String get basicInfo;
+
+  /// No description provided for @addProgram.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Program'**
+  String get addProgram;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

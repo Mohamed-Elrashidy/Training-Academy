@@ -85,5 +85,13 @@
   "months": "Months",
   "years": "Years",
   "onsite": "Onsite",
-  "offline": "Offline"
+  "offline": "Offline",
+  "payInApp": "Pay in App",
+  "egyptianPound": "Egyptian Pound",
+  "usDollar": "US Dollar",
+  "euroCurrency": "Euro",
+  "britishPound": "British Pound",
+  "saudiRiyal": "Saudi Riyal",
+  "basicInfo": "Basic Info",
+  "addProgram": "Add Program"
 }

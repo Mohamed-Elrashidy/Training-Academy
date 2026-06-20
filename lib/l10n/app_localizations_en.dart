@@ -265,4 +265,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get offline => 'Offline';
+
+  @override
+  String get payInApp => 'Pay in App';
+
+  @override
+  String get egyptianPound => 'Egyptian Pound';
+
+  @override
+  String get usDollar => 'US Dollar';
+
+  @override
+  String get euroCurrency => 'Euro';
+
+  @override
+  String get britishPound => 'British Pound';
+
+  @override
+  String get saudiRiyal => 'Saudi Riyal';
+
+  @override
+  String get basicInfo => 'Basic Info';
+
+  @override
+  String get addProgram => 'Add Program';
 }
