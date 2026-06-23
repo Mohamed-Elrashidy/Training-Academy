@@ -11,6 +11,8 @@ class AppColors {
   static Color darkMainContainerColor = Color(0xFF1E1E1E);
   static Color lightMainContainerColor = Color(0xFFF1F3F4);
 
+  static Color red = Color(0xFFFF0000);
+
   static Color get lightScaffoldBackground => Color(0xFFFFFFFF);
   static Color get darkScaffoldBackground => Color(0xFF121212);
 

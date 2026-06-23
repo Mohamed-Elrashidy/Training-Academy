@@ -50,6 +50,7 @@ class LocalizeTextFields extends StatelessWidget {
           hint: englishHint,
           validator: englishValidator,
           maxLines: isDescription ? 5 : 1,
+          maxLength: isDescription ? 500 : null,
         ),
       ),
       Directionality(
@@ -60,6 +61,7 @@ class LocalizeTextFields extends StatelessWidget {
           hint: arabicHint,
           validator: arabicValidator,
           maxLines: isDescription ? 5 : 1,
+          maxLength: isDescription ? 500 : null,
         ),
       ),
     ];

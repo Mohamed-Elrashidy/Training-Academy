@@ -37,4 +37,6 @@ extension Responsive on BuildContext {
   double get horizontalComponentTitleAndComponentsSpacing =>
       responsive.scale(16);
   double get componentsSpacing => responsive.scale(24);
+  double get mainContainerBorderRadius => responsive.scale(16);
+  double get smallContainerBorderRadius => responsive.scale(8);
 }

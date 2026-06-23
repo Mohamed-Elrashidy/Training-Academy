@@ -54,13 +54,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordRequiredValidation => 'Password is required.';
 
   @override
-  String get passwordInvalidValidation => 'Password must be at least 8 characters and include uppercase, lowercase, and a number.';
+  String get passwordInvalidValidation =>
+      'Password must be at least 8 characters and include uppercase, lowercase, and a number.';
 
   @override
-  String get confirmPasswordRequiredValidation => 'Confirm password is required.';
+  String get confirmPasswordRequiredValidation =>
+      'Confirm password is required.';
 
   @override
-  String get confirmPasswordMismatchValidation => 'Password and confirm password do not match.';
+  String get confirmPasswordMismatchValidation =>
+      'Password and confirm password do not match.';
 
   @override
   String get firstNameRequiredValidation => 'First name is required.';
@@ -93,7 +96,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get agreeToTermsAndConditions => 'I agree to the Terms and Conditions';
 
   @override
-  String get termsAndConditionsRequiredValidation => 'You must agree to the Terms and Conditions.';
+  String get termsAndConditionsRequiredValidation =>
+      'You must agree to the Terms and Conditions.';
 
   @override
   String get alreadyHaveAnAccount => 'Already have an account?';
@@ -105,7 +109,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidCredentials => 'Invalid email or password.';
 
   @override
-  String get accountInactive => 'Your account is inactive. Please contact support.';
+  String get accountInactive =>
+      'Your account is inactive. Please contact support.';
 
   @override
   String get errorTitle => 'Error';
@@ -289,4 +294,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addProgram => 'Add Program';
+
+  @override
+  String get thumbnailImage => 'Thumbnail Image';
+
+  @override
+  String get coverImage => 'Cover Image';
+
+  @override
+  String get addMore => 'Add More';
+
+  @override
+  String get prerequisites => 'Prerequisites';
+
+  @override
+  String get objectives => 'Objectives';
 }

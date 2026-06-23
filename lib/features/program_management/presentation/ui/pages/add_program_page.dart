@@ -7,6 +7,8 @@ import 'package:training_acedamy/features/program_management/domain/entities/pro
 
 import '../../../../../l10n/app_localizations.dart';
 import '../widgets/program_basic_info.dart';
+import '../widgets/program_objectives.dart';
+import '../widgets/program_prerequisites.dart';
 
 class AddProgramPage extends StatefulWidget {
   const AddProgramPage({super.key});
@@ -38,7 +40,11 @@ class _AddProgramPageState extends State<AddProgramPage> {
             child: SingleChildScrollView(
               child: Column(
                 spacing: 24.sp,
-                children: [ProgramBasicInfo(entity: entity)],
+                children: [
+                  ProgramBasicInfo(entity: entity),
+                  ProgramPrerequisites(entity: entity),
+                  ProgramObjectives(entity: entity),
+                ],
               ),
             ),
           ),

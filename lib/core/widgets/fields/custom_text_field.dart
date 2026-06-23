@@ -15,6 +15,7 @@ class CustomTextField extends StatefulWidget {
     this.isReadOnly = false,
     this.isPassword = false,
     this.maxLines = 1,
+    this.maxLength,
     required this.controller,
     this.hintText,
     this.validator,
@@ -25,6 +26,7 @@ class CustomTextField extends StatefulWidget {
   final bool isReadOnly;
   final bool isPassword;
   final int maxLines;
+  final int? maxLength;
   final TextEditingController controller;
   final String? hintText;
   final String? Function(String?)? validator;
@@ -79,6 +81,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           readOnly: widget.isReadOnly,
           obscureText: widget.isPassword ? _isObscured : false,
           maxLines: widget.maxLines,
+          maxLength: widget.maxLength,
           keyboardType: widget.maxLines > 1
               ? TextInputType.multiline
               : TextInputType.text,

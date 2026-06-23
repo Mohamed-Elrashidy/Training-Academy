@@ -4,6 +4,7 @@ import 'package:training_acedamy/features/program_management/domain/entities/pro
 
 import '../../../../../core/extensions/extension.dart';
 import '../../../../../core/widgets/layout_builders/expand_wrapper.dart';
+import '../../../../../core/widgets/media/single_image_picker.dart';
 import '../../../../../l10n/app_localizations.dart';
 
 class ProgramBasicInfo extends StatefulWidget {
@@ -74,6 +75,24 @@ class _ProgramBasicInfoState extends State<ProgramBasicInfo> {
             englishHint: "Description",
             arabicTitle: "الوصف",
             englishTitle: "Description",
+          ),
+          SingleImagePicker(
+            title: AppLocalizations.of(context)!.thumbnailImage,
+            initialImage: widget.entity.thumbnailUrl,
+            isReadOnly: widget.isReadOnly,
+            onImageChanged: (String? image) {
+              widget.entity.thumbnailUrl = image;
+              widget.onChanged?.call();
+            },
+          ),
+          SingleImagePicker(
+            title: AppLocalizations.of(context)!.coverImage,
+            initialImage: widget.entity.coverImageUrl,
+            isReadOnly: widget.isReadOnly,
+            onImageChanged: (String? image) {
+              widget.entity.coverImageUrl = image;
+              widget.onChanged?.call();
+            },
           ),
         ],
       ),

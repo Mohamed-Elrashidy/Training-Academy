@@ -93,5 +93,10 @@
   "britishPound": "British Pound",
   "saudiRiyal": "Saudi Riyal",
   "basicInfo": "Basic Info",
-  "addProgram": "Add Program"
+  "addProgram": "Add Program",
+  "thumbnailImage": "Thumbnail Image",
+  "coverImage": "Cover Image",
+  "addMore": "Add More",
+  "prerequisites": "Prerequisites",
+  "objectives": "Objectives"
 }

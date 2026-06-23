@@ -17,6 +17,7 @@ class CustomTextFieldWithTitle extends StatelessWidget {
     required this.controller,
     this.validator,
     this.maxLines = 1,
+    this.maxLength,
     this.hint = '',
     this.isExpanded = false,
     super.key,
@@ -25,6 +26,7 @@ class CustomTextFieldWithTitle extends StatelessWidget {
   final TextEditingController controller;
   final String? Function(String?)? validator;
   final int maxLines;
+  final int? maxLength;
   final bool isExpanded;
   final String hint;
 
@@ -49,6 +51,7 @@ class CustomTextFieldWithTitle extends StatelessWidget {
           hintText: hint,
           validator: validator,
           maxLines: maxLines,
+          maxLength: maxLength,
         ),
       ],
     );

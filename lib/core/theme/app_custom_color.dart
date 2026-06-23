@@ -45,4 +45,6 @@ class AppCustomColor {
     lightColor: AppColors.transparent,
     darkColor: AppColors.transparent,
   );
+  static CustomColorEntity get deleteRed =>
+      CustomColorEntity(lightColor: AppColors.red, darkColor: AppColors.red);
 }

@@ -15,6 +15,8 @@ class ProgramEntity {
   String? arabicDescription;
   List<String>? englishPrerequisites;
   List<String>? arabicPrerequisites;
+  List<String>? englishObjectives;
+  List<String>? arabicObjectives;
   List<String>? englishLearningOutcomes;
   List<String>? arabicLearningOutcomes;
   ProgramType? programType;
@@ -44,6 +46,8 @@ class ProgramEntity {
     this.arabicDescription,
     this.englishPrerequisites,
     this.arabicPrerequisites,
+    this.englishObjectives,
+    this.arabicObjectives,
     this.englishLearningOutcomes,
     this.arabicLearningOutcomes,
     this.programType,
@@ -83,6 +87,9 @@ class ProgramEntity {
 
   List<String>? get localizedPrerequisites =>
       isArabicLocale ? arabicPrerequisites : englishPrerequisites;
+
+  List<String>? get localizedObjectives =>
+      isArabicLocale ? arabicObjectives : englishObjectives;
 
   List<String>? get localizedLearningOutcomes =>
       isArabicLocale ? arabicLearningOutcomes : englishLearningOutcomes;
