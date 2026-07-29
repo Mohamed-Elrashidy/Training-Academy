@@ -98,11 +98,20 @@
   "coverImage": "صورة الغلاف",
   "addMore": "اضافة المزيد",
   "prerequisites": "المتطلبات",
-  "objectives": "الأهداف"
+  "objectives": "الأهداف",
+  "learningOutcomes": "مخرجات التعلم",
+  "notes": "ملاحظات",
+  "programDetails": "تفاصيل البرنامج",
+  "programType": "نوع البرنامج",
+  "maxParticipants": "أقصى عدد للمشاركين",
+  "numberOfAllowedTrainers": "عدد المدربين المسموح بهم",
+  "numberOfAllowedCoaches": "عدد المدربين المساعدين المسموح بهم",
+  "numberOfSessions": "عدد الجلسات",
+  "price": "السعر",
+  "currency": "العملة",
+  "category": "الفئة",
+  "choose": "اختار"
 }
-
-
-
 
 
 

@@ -20,6 +20,9 @@ class CustomTextField extends StatefulWidget {
     this.hintText,
     this.validator,
     this.autovalidateMode,
+    this.keyboardType,
+    this.suffixIcon,
+    this.onTap,
     super.key,
   });
 
@@ -31,6 +34,9 @@ class CustomTextField extends StatefulWidget {
   final String? hintText;
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
+  final Function()? onTap;
+  final Widget? suffixIcon;
 
   /// Function Name: createState
   ///
@@ -82,9 +88,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           obscureText: widget.isPassword ? _isObscured : false,
           maxLines: widget.maxLines,
           maxLength: widget.maxLength,
-          keyboardType: widget.maxLines > 1
-              ? TextInputType.multiline
-              : TextInputType.text,
+          keyboardType:
+              widget.keyboardType ??
+              (widget.maxLines > 1
+                  ? TextInputType.multiline
+                  : TextInputType.text),
           textAlignVertical: widget.maxLines > 1
               ? TextAlignVertical.top
               : TextAlignVertical.center,
@@ -96,6 +104,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fillColor: AppCustomColor.textFieldFillColor.color,
             filled: true,
             hintText: widget.hintText,
+
             hintStyle: AppTextStyles.hint,
             suffixIcon: widget.isPassword
                 ? IconButton(
@@ -108,7 +117,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                       color: AppCustomColor.primaryColor.color,
                     ),
                   )
-                : null,
+                : widget.suffixIcon,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4.sp),
             ),

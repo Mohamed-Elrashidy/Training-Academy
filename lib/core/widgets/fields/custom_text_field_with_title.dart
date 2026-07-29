@@ -1,9 +1,3 @@
-/// ****************** FILE INFO ******************
-/// File Name: custom_text_field_with_title.dart
-/// Purpose: A custom text field widget with a title, with an option to expand to prevent overflow.
-/// Author: Mohamed Elrashidy
-/// Created At: 05/04/2026
-
 import 'package:flutter/material.dart';
 import 'package:training_acedamy/core/widgets/fields/custom_text_field.dart';
 import 'package:training_acedamy/core/widgets/spacers/vertical_spacer.dart';
@@ -20,6 +14,8 @@ class CustomTextFieldWithTitle extends StatelessWidget {
     this.maxLength,
     this.hint = '',
     this.isExpanded = false,
+    this.isReadOnly = false,
+    this.keyboardType,
     super.key,
   });
   final String title;
@@ -28,6 +24,8 @@ class CustomTextFieldWithTitle extends StatelessWidget {
   final int maxLines;
   final int? maxLength;
   final bool isExpanded;
+  final bool isReadOnly;
+  final TextInputType? keyboardType;
   final String hint;
 
   /// Function Name: build
@@ -52,6 +50,8 @@ class CustomTextFieldWithTitle extends StatelessWidget {
           validator: validator,
           maxLines: maxLines,
           maxLength: maxLength,
+          isReadOnly: isReadOnly,
+          keyboardType: keyboardType,
         ),
       ],
     );

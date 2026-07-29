@@ -19,6 +19,11 @@ class ProgramEntity {
   List<String>? arabicObjectives;
   List<String>? englishLearningOutcomes;
   List<String>? arabicLearningOutcomes;
+  List<String>? englishNotes;
+  List<String>? arabicNotes;
+
+  String? thumbnailUrl;
+  String? coverImageUrl;
   ProgramType? programType;
   int? maxParticipants;
   int? numberOfAllowedTrainers;
@@ -26,8 +31,6 @@ class ProgramEntity {
   int? numberOfSessions;
   double? price;
   CurrencyEnum? currency;
-  String? thumbnailUrl;
-  String? coverImageUrl;
   ProgramCategory? category;
   ProgramStatus? status;
   String? notes;
@@ -50,6 +53,8 @@ class ProgramEntity {
     this.arabicObjectives,
     this.englishLearningOutcomes,
     this.arabicLearningOutcomes,
+    this.englishNotes,
+    this.arabicNotes,
     this.programType,
     this.maxParticipants,
     this.numberOfAllowedTrainers,
@@ -61,7 +66,6 @@ class ProgramEntity {
     this.coverImageUrl,
     this.category,
     this.status,
-    this.notes,
     this.hasPrerequisites,
     this.hasLearningOutcomes,
     this.startDate,
@@ -93,6 +97,9 @@ class ProgramEntity {
 
   List<String>? get localizedLearningOutcomes =>
       isArabicLocale ? arabicLearningOutcomes : englishLearningOutcomes;
+
+  List<String>? get localizedNotes =>
+      isArabicLocale ? arabicNotes : englishNotes;
 
   static ProgramEntity newEmptyInstance() {
     return ProgramEntity();

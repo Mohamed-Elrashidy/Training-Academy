@@ -54,15 +54,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passwordRequiredValidation => 'كلمة المرور مطلوبة.';
 
   @override
-  String get passwordInvalidValidation =>
-      'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وأن تحتوي على حرف كبير وحرف صغير ورقم.';
+  String get passwordInvalidValidation => 'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل وأن تحتوي على حرف كبير وحرف صغير ورقم.';
 
   @override
   String get confirmPasswordRequiredValidation => 'تأكيد كلمة المرور مطلوب.';
 
   @override
-  String get confirmPasswordMismatchValidation =>
-      'كلمة المرور وتأكيد كلمة المرور غير متطابقتين.';
+  String get confirmPasswordMismatchValidation => 'كلمة المرور وتأكيد كلمة المرور غير متطابقتين.';
 
   @override
   String get firstNameRequiredValidation => 'الاسم الأول مطلوب.';
@@ -95,8 +93,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get agreeToTermsAndConditions => 'أوافق على الشروط والأحكام';
 
   @override
-  String get termsAndConditionsRequiredValidation =>
-      'يجب الموافقة على الشروط والأحكام.';
+  String get termsAndConditionsRequiredValidation => 'يجب الموافقة على الشروط والأحكام.';
 
   @override
   String get alreadyHaveAnAccount => 'هل لديك حساب بالفعل؟';
@@ -105,8 +102,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get emailAlreadyInUse => 'عنوان البريد الإلكتروني مستخدم بالفعل.';
 
   @override
-  String get invalidCredentials =>
-      'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
+  String get invalidCredentials => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.';
 
   @override
   String get accountInactive => 'حسابك غير نشط. يرجى الاتصال بالدعم.';
@@ -308,4 +304,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get objectives => 'الأهداف';
+
+  @override
+  String get learningOutcomes => 'مخرجات التعلم';
+
+  @override
+  String get notes => 'ملاحظات';
+
+  @override
+  String get programDetails => 'تفاصيل البرنامج';
+
+  @override
+  String get programType => 'نوع البرنامج';
+
+  @override
+  String get maxParticipants => 'أقصى عدد للمشاركين';
+
+  @override
+  String get numberOfAllowedTrainers => 'عدد المدربين المسموح بهم';
+
+  @override
+  String get numberOfAllowedCoaches => 'عدد المدربين المساعدين المسموح بهم';
+
+  @override
+  String get numberOfSessions => 'عدد الجلسات';
+
+  @override
+  String get price => 'السعر';
+
+  @override
+  String get currency => 'العملة';
+
+  @override
+  String get category => 'الفئة';
+
+  @override
+  String get choose => 'اختار';
 }

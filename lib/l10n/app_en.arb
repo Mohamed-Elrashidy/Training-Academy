@@ -98,5 +98,17 @@
   "coverImage": "Cover Image",
   "addMore": "Add More",
   "prerequisites": "Prerequisites",
-  "objectives": "Objectives"
+  "objectives": "Objectives",
+  "learningOutcomes": "Learning Outcomes",
+  "notes": "Notes",
+  "programDetails": "Program Details",
+  "programType": "Program Type",
+  "maxParticipants": "Max Participants",
+  "numberOfAllowedTrainers": "Allowed Trainers",
+  "numberOfAllowedCoaches": "Allowed Coaches",
+  "numberOfSessions": "Number of Sessions",
+  "price": "Price",
+  "currency": "Currency",
+  "category": "Category",
+  "choose": "Choose"
 }

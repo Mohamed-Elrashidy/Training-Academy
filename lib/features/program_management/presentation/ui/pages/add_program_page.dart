@@ -7,7 +7,10 @@ import 'package:training_acedamy/features/program_management/domain/entities/pro
 
 import '../../../../../l10n/app_localizations.dart';
 import '../widgets/program_basic_info.dart';
+import '../widgets/program_details.dart';
+import '../widgets/program_learning_outcomes.dart';
 import '../widgets/program_objectives.dart';
+import '../widgets/program_notes.dart';
 import '../widgets/program_prerequisites.dart';
 
 class AddProgramPage extends StatefulWidget {
@@ -42,8 +45,11 @@ class _AddProgramPageState extends State<AddProgramPage> {
                 spacing: 24.sp,
                 children: [
                   ProgramBasicInfo(entity: entity),
+                  ProgramDetails(entity: entity),
                   ProgramPrerequisites(entity: entity),
                   ProgramObjectives(entity: entity),
+                  ProgramLearningOutcomes(entity: entity),
+                  ProgramNotes(entity: entity),
                 ],
               ),
             ),
